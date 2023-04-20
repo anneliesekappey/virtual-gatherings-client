@@ -1,4 +1,5 @@
-import './App.css'
+import React from 'react'
+import { ThemeProvider } from '@mui/material'
 import { Routes, Route } from 'react-router-dom'
 import Signup from './pages/Signup'
 import NavBar from './components/NavBar'
@@ -13,11 +14,14 @@ import { LearnMorePage } from './pages/LearnMorePage'
 import { ResourcesPage } from './pages/ResourcesPage'
 import { ShoppingCart } from './pages/ShoppingCart'
 import { WhatWeOfferPage } from './pages/WhatWeOfferPage'
+import Header from './components/ui/Header'
+import Theme from './components/ui/Theme'
 
 const App = () => {
   return (
-    <div className="App">
+    <ThemeProvider theme={Theme}>
       <NavBar />
+      <Header>Virtual Gatherings</Header>
       <Routes>
         <Route path="/signup" element=<Signup /> />
         <Route path="/login" element=<Login /> />
@@ -44,7 +48,7 @@ const App = () => {
         />
         <Route path="/online-meetings" element=<WhatWeOfferPage /> />
       </Routes>
-    </div>
+    </ThemeProvider>
   )
 }
 
