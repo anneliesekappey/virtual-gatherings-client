@@ -2,7 +2,6 @@ import React from 'react'
 import { ThemeProvider } from '@mui/material'
 import { Routes, Route } from 'react-router-dom'
 import Signup from './pages/Signup'
-import NavBar from './components/NavBar'
 import Login from './pages/Login'
 import { HomePage } from './pages/HomePage'
 import { AboutUsPage } from './pages/AboutUsPage'
@@ -20,8 +19,7 @@ import Theme from './components/ui/Theme'
 const App = () => {
   return (
     <ThemeProvider theme={Theme}>
-      <NavBar />
-      <Header>Virtual Gatherings</Header>
+      <Header />
       <Routes>
         <Route path="/signup" element=<Signup /> />
         <Route path="/login" element=<Login /> />

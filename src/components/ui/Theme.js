@@ -29,5 +29,9 @@ export default createTheme({
       fontWeight: 100,
       fontFamily: ['Cardo', 'Montserrat'],
     },
+    h6: {
+      fontWeight: 50,
+      fontFamily: ['Cardo', 'Montserrat'],
+    },
   },
 })

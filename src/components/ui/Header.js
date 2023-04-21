@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AppBar, Typography } from '@mui/material'
 import { Toolbar } from '@mui/material'
 import { useScrollTrigger } from '@mui/material'
 import { Tabs } from '@mui/material'
 import { Tab } from '@mui/material'
 import { Button } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 function ElevationScroll(props) {
   const { children } = props
@@ -19,87 +20,106 @@ function ElevationScroll(props) {
 }
 
 const Header = (props) => {
+  const [value, setValue] = useState(0)
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+  }
+
   return (
     <ElevationScroll>
       <AppBar position="fixed">
         <Toolbar sx={{ margin: 1.5 }}>
-          <Typography variant="h4" color="secondary">
-            Virtual Gatherings
-          </Typography>
-          <Tabs sx={{ marginLeft: 'auto' }}>
+          <Button component={Link} to="/">
+            <Typography variant="h6" color="secondary">
+              Virtual Gatherings
+            </Typography>
+          </Button>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            textColor="secondary"
+            indicatorColor="secondary"
+            aria-label="secondary tabs example"
+            sx={{ marginLeft: 'auto' }}
+          >
             <Tab
+              component={Link}
+              to="/"
               sx={{
                 fontFamily: 'Cardo',
-                fontSize: '1rem',
-                minWidth: 8,
-                marginLeft: '7px',
+                fontSize: '.9rem',
               }}
               label="Home"
             />
             <Tab
+              component={Link}
+              to="/about-virtual-gatherings"
               sx={{
                 fontFamily: 'Cardo',
-                fontSize: '1rem',
-                minWidth: 8,
-                marginLeft: '7px',
+                fontSize: '.9rem',
               }}
               label="About Us"
             />
             <Tab
+              component={Link}
+              to="/contact-virtual-gatherings"
               sx={{
                 fontFamily: 'Cardo',
-                fontSize: '1rem',
-                minWidth: 8,
-                marginLeft: '7px',
+                fontSize: '.9rem',
               }}
               label="Contact Us"
             />
             <Tab
+              component={Link}
+              to="/learn-more"
               sx={{
                 fontFamily: 'Cardo',
-                fontSize: '1rem',
-                minWidth: 8,
-                marginLeft: '7px',
+                fontSize: '.9rem',
               }}
               label="Learn More"
             />
             <Tab
+              component={Link}
+              to="/games-information-resources-for-patients-living-with-dementia-and-alzheimers"
               sx={{
                 fontFamily: 'Cardo',
-                fontSize: '1rem',
-                minWidth: 8,
-                marginLeft: '7px',
+                fontSize: '.9rem',
               }}
               label="Resources"
             />
             <Tab
+              component={Link}
+              to="/online-meetings"
               sx={{
                 fontFamily: 'Cardo',
-                fontSize: '1rem',
-                minWidth: 8,
-                marginLeft: '7px',
+                fontSize: '.9rem',
               }}
               label="Our Services"
             />
             <Tab
+              component={Link}
+              to="/friends-working-with-patients-living-with-dementia-and-alzheimers"
               sx={{
                 fontFamily: 'Cardo',
-                fontSize: '1rem',
-                minWidth: 8,
-                marginLeft: '7px',
+                fontSize: '.9rem',
               }}
               label="Our Friends"
             />
           </Tabs>
           <Button
+            component={Link}
+            to="/signup"
             sx={{
               borderRadius: '15px',
-              marginLeft: '8px',
-              marginRight: '2px',
+              marginLeft: '3px',
+              marginRight: '1px',
               fontFamily: 'Cardo',
               fontSize: '1rem',
               textTransform: 'none',
               padding: '3px',
+              height: '45px',
+              color: 'white',
             }}
             variant="contained"
             color="secondary"
@@ -107,14 +127,18 @@ const Header = (props) => {
             Sign Up
           </Button>
           <Button
+            component={Link}
+            to="/login"
             sx={{
               borderRadius: '15px',
-              marginLeft: '8px',
-              marginRight: '2px',
+              marginLeft: '3px',
+              marginRight: '1px',
               fontFamily: 'Cardo',
               fontSize: '1rem',
               textTransform: 'none',
               padding: '3px',
+              height: '45px',
+              color: 'white',
             }}
             variant="contained"
             color="secondary"
