@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ThemeProvider } from '@mui/material'
 import { Routes, Route } from 'react-router-dom'
 import Signup from './pages/Signup'
@@ -15,11 +15,20 @@ import { ShoppingCart } from './pages/ShoppingCart'
 import { WhatWeOfferPage } from './pages/WhatWeOfferPage'
 import Header from './components/ui/Header'
 import Theme from './components/ui/Theme'
+import Footer from './components/ui/Footer'
 
 const App = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [value, setValue] = useState(0)
+
   return (
     <ThemeProvider theme={Theme}>
-      <Header />
+      <Header
+        value={value}
+        setValue={setValue}
+        selectedIndex={selectedIndex}
+        setSelectedIndex={setSelectedIndex}
+      />
       <Routes>
         <Route path="/" element=<HomePage /> />
         <Route path="/signup" element=<Signup /> />
@@ -46,6 +55,12 @@ const App = () => {
         />
         <Route path="/work-with-virtual-gatherings" element=<CareersPage /> />
       </Routes>
+      <Footer
+        value={value}
+        setValue={setValue}
+        selectedIndex={selectedIndex}
+        setSelectedIndex={setSelectedIndex}
+      />
     </ThemeProvider>
   )
 }

@@ -48,10 +48,14 @@ export default createTheme({
         },
       },
     },
-    MuiSwipeableDrawer: {
+    MuiListItemButton: {
       styleOverrides: {
-        paper: {
-          background: 'secondary',
+        root: {
+          background: '#B8D8D8',
+          opacity: 0.8,
+          '&:hover': {
+            opacity: 1,
+          },
         },
       },
     },

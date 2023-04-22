@@ -14,8 +14,8 @@ import { SwipeableDrawer } from '@mui/material'
 import { IconButton } from '@mui/material'
 import { DensityMedium } from '@mui/icons-material'
 import { List } from '@mui/material'
-import { ListItem } from '@mui/material'
 import { ListItemText } from '@mui/material'
+import { ListItemButton } from '@mui/material'
 
 function ElevationScroll(props) {
   const { children } = props
@@ -36,14 +36,12 @@ const Header = (props) => {
     /iPad|iPhone|iPod/.test(navigator.userAgent)
   const matches = useMediaQuery(theme.breakpoints.down('md'))
 
-  const [value, setValue] = useState(0)
   const [anchorEl, setAnchorEl] = useState(null)
   const [open, setOpen] = useState(false)
-  const [selectedIndex, setSelectedIndex] = useState(0)
   const [openDrawer, setOpenDrawer] = useState(false)
 
   const handleChange = (event, newValue) => {
-    setValue(newValue)
+    props.setValue(newValue)
   }
 
   const handleClick = (e) => {
@@ -54,7 +52,7 @@ const Header = (props) => {
   const handleMenuItemClick = (e, i) => {
     setAnchorEl(null)
     setOpen(false)
-    setSelectedIndex(i)
+    props.setSelectedIndex(i)
   }
 
   const handleClose = (e) => {
@@ -62,6 +60,7 @@ const Header = (props) => {
     setOpen(false)
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const aboutMenuOptions = [
     {
       name: 'About Us',
@@ -80,62 +79,62 @@ const Header = (props) => {
   useEffect(() => {
     switch (window.location.pathname) {
       case '/':
-        if (value !== 0) {
-          setValue(0)
+        if (props.value !== 0) {
+          props.setValue(0)
         }
         break
       case '/about-virtual-gatherings':
-        if (value !== 1) {
-          setValue(1)
-          setSelectedIndex(0)
+        if (props.value !== 1) {
+          props.setValue(1)
+          props.setSelectedIndex(0)
         }
         break
       case '/learn-more':
-        if (value !== 1) {
-          setValue(1)
-          setSelectedIndex(1)
+        if (props.value !== 1) {
+          props.setValue(1)
+          props.setSelectedIndex(1)
         }
         break
       case '/friends-working-with-patients-living-with-dementia-and-alzheimers':
-        if (value !== 1) {
-          setValue(1)
-          setSelectedIndex(2)
+        if (props.value !== 1) {
+          props.setValue(1)
+          props.setSelectedIndex(2)
         }
         break
       case '/online-meetings':
-        if (value !== 2) {
-          setValue(2)
+        if (props.value !== 2) {
+          props.setValue(2)
         }
         break
       case '/games-information-resources-for-patients-living-with-dementia-and-alzheimers':
-        if (value !== 3) {
-          setValue(3)
+        if (props.value !== 3) {
+          props.setValue(3)
         }
         break
       case '/contact-virtual-gatherings':
-        if (value !== 4) {
-          setValue(4)
+        if (props.value !== 4) {
+          props.setValue(4)
         }
         break
       case '/signup':
-        if (value !== 5) {
-          setValue(5)
+        if (props.value !== 5) {
+          props.setValue(5)
         }
         break
       case '/login':
-        if (value !== 6) {
-          setValue(6)
+        if (props.value !== 6) {
+          props.setValue(6)
         }
         break
       default:
         break
     }
-  }, [value])
+  }, [props.value, aboutMenuOptions, props.selectedIndex, props])
 
   const tabs = (
     <React.Fragment>
       <Tabs
-        value={value}
+        value={props.value}
         onChange={handleChange}
         textColor="secondary"
         indicatorColor="secondary"
@@ -255,10 +254,10 @@ const Header = (props) => {
             to={option.link}
             onClick={(event) => {
               handleMenuItemClick(event, i)
-              setValue(1)
+              props.setValue(1)
               handleClose()
             }}
-            selected={i === selectedIndex && value === 1}
+            selected={i === props.selectedIndex && props.value === 1}
           >
             {option.name}
           </MenuItem>
@@ -272,7 +271,7 @@ const Header = (props) => {
     <React.Fragment>
       <SwipeableDrawer
         sx={{
-          background: 'secondary',
+          backgroundColor: 'EEF5D8',
         }}
         disableBackdropTransition={!iOS}
         disableDiscovery={iOS}
@@ -283,69 +282,202 @@ const Header = (props) => {
         }}
       >
         <List>
-          <ListItem
-            onClick={() => setOpenDrawer(false)}
+          <ListItemButton
+            onClick={() => {
+              setOpenDrawer(false)
+              props.setValue(0)
+            }}
             divider
-            ListItemButton
             component={Link}
             to="/"
+            selected={props.value === 0}
           >
-            <ListItemText disableTypography>Home</ListItemText>
-          </ListItem>
-          <ListItem
-            onClick={() => setOpenDrawer(false)}
+            <ListItemText
+              sx={{
+                color: '#4F6367',
+                fontFamily: 'Cardo',
+                fontVariant: 'small-caps',
+              }}
+              disableTypography
+            >
+              Home
+            </ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              setOpenDrawer(false)
+              props.setValue(1)
+            }}
+            divider
+            component={Link}
+            to="/about-virtual-gatherings"
+            selected={props.value === 1}
+          >
+            <ListItemText
+              sx={{
+                color: '#4F6367',
+                fontFamily: 'Cardo',
+                fontVariant: 'small-caps',
+              }}
+              disableTypography
+            >
+              About Us
+            </ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              setOpenDrawer(false)
+              props.setValue(2)
+            }}
             divider
             ListItemButton
             component={Link}
-            to="/about-virtual-gatherings"
+            to="/learn-more"
+            selected={props.value === 2}
           >
-            <ListItemText disableTypography>About Us</ListItemText>
-          </ListItem>
-          <ListItem
-            onClick={() => setOpenDrawer(false)}
+            <ListItemText
+              sx={{
+                color: '#4F6367',
+                fontFamily: 'Cardo',
+                fontVariant: 'small-caps',
+              }}
+              disableTypography
+            >
+              Learn More
+            </ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              setOpenDrawer(false)
+              props.setValue(3)
+            }}
+            divider
+            ListItemButton
+            component={Link}
+            to="/friends-working-with-patients-living-with-dementia-and-alzheimers"
+            selected={props.value === 3}
+          >
+            <ListItemText
+              sx={{
+                color: '#4F6367',
+                fontFamily: 'Cardo',
+                fontVariant: 'small-caps',
+              }}
+              disableTypography
+            >
+              Our Friends
+            </ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              setOpenDrawer(false)
+              props.setValue(4)
+            }}
             divider
             ListItemButton
             component={Link}
             to="/online-meetings"
+            selected={props.value === 4}
           >
-            <ListItemText disableTypography>Our Services</ListItemText>
-          </ListItem>
-          <ListItem
-            onClick={() => setOpenDrawer(false)}
+            <ListItemText
+              sx={{
+                color: '#4F6367',
+                fontFamily: 'Cardo',
+                fontVariant: 'small-caps',
+              }}
+              disableTypography
+            >
+              Our Services
+            </ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              setOpenDrawer(false)
+              props.setValue(5)
+            }}
             divider
             ListItemButton
             component={Link}
             to="/games-information-resources-for-patients-living-with-dementia-and-alzheimers"
+            selected={props.value === 5}
           >
-            <ListItemText disableTypography>Resources</ListItemText>
-          </ListItem>
-          <ListItem
-            onClick={() => setOpenDrawer(false)}
+            <ListItemText
+              sx={{
+                color: '#4F6367',
+                fontFamily: 'Cardo',
+                fontVariant: 'small-caps',
+              }}
+              disableTypography
+            >
+              Resources
+            </ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              setOpenDrawer(false)
+              props.setValue(6)
+            }}
             divider
             ListItemButton
             component={Link}
             to="/contact-virtual-gatherings"
+            selected={props.value === 6}
           >
-            <ListItemText disableTypography>Contact Us</ListItemText>
-          </ListItem>
-          <ListItem
-            onClick={() => setOpenDrawer(false)}
+            <ListItemText
+              sx={{
+                color: '#4F6367',
+                fontFamily: 'Cardo',
+                fontVariant: 'small-caps',
+              }}
+              disableTypography
+            >
+              Contact Us
+            </ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              setOpenDrawer(false)
+              props.setValue(7)
+            }}
             divider
             ListItemButton
             component={Link}
             to="/signup"
+            selected={props.value === 7}
           >
-            <ListItemText disableTypography>Sign Up</ListItemText>
-          </ListItem>
-          <ListItem
-            onClick={() => setOpenDrawer(false)}
+            <ListItemText
+              sx={{
+                color: '#FE5F55',
+                fontFamily: 'Cardo',
+                fontVariant: 'small-caps',
+              }}
+              disableTypography
+            >
+              Sign Up
+            </ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              setOpenDrawer(false)
+              props.setValue(8)
+            }}
             divider
             ListItemButton
             component={Link}
             to="/login"
+            selected={props.value === 8}
           >
-            <ListItemText disableTypography>Login</ListItemText>
-          </ListItem>
+            <ListItemText
+              sx={{
+                color: '#FE5F55',
+                fontFamily: 'Cardo',
+                fontVariant: 'small-caps',
+              }}
+              disableTypography
+            >
+              Login
+            </ListItemText>
+          </ListItemButton>
         </List>
       </SwipeableDrawer>
       <IconButton
