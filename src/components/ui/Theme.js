@@ -7,7 +7,7 @@ export default createTheme({
   palette: {
     common: {
       blue: `${vgBlue}`,
-      beige: `${vgRed}`,
+      red: `${vgRed}`,
     },
     primary: {
       main: `${vgBlue}`,
@@ -18,6 +18,42 @@ export default createTheme({
       main: '#7A9E9F',
       light: 'EEF5D8',
       dark: `${vgRed}`,
+    },
+    terciary: {
+      main: `${vgRed}`,
+      light: 'EEF5D8',
+      dark: `${vgRed}`,
+    },
+  },
+  components: {
+    MuiMenu: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: '#7A9E9F',
+        },
+        list: {
+          color: 'white',
+        },
+      },
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Cardo',
+          fontVariant: 'small-caps',
+          opacity: 0.8,
+          '&:hover': {
+            opacity: 1,
+          },
+        },
+      },
+    },
+    MuiSwipeableDrawer: {
+      styleOverrides: {
+        paper: {
+          background: 'secondary',
+        },
+      },
     },
   },
   typography: {

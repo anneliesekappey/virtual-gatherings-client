@@ -21,30 +21,30 @@ const App = () => {
     <ThemeProvider theme={Theme}>
       <Header />
       <Routes>
+        <Route path="/" element=<HomePage /> />
         <Route path="/signup" element=<Signup /> />
         <Route path="/login" element=<Login /> />
-        <Route path="/" element=<HomePage /> />
-        <Route path="/about-virtual-gatherings" element=<AboutUsPage /> />
         <Route path="/book-a-session" element=<BookASession /> />
-        <Route path="/work-with-virtual-gatherings" element=<CareersPage /> />
         <Route
-          path="/contact-virtual-gatherings"
-          element=<ContactVirtualGatherings />
+          path="/purchase-a-session-or-a-bundle"
+          element=<ShoppingCart />
         />
-        <Route
-          path="/friends-working-with-patients-living-with-dementia-and-alzheimers"
-          element=<FriendsOfVirtualGatherings />
-        />
+        <Route path="/about-virtual-gatherings" element=<AboutUsPage /> />
         <Route path="/learn-more" element=<LearnMorePage /> />
+        <Route path="/online-meetings" element=<WhatWeOfferPage /> />
         <Route
           path="/games-information-resources-for-patients-living-with-dementia-and-alzheimers"
           element=<ResourcesPage />
         />
         <Route
-          path="/purchase-a-session-or-a-bundle"
-          element=<ShoppingCart />
+          path="/friends-working-with-patients-living-with-dementia-and-alzheimers"
+          element=<FriendsOfVirtualGatherings />
         />
-        <Route path="/online-meetings" element=<WhatWeOfferPage /> />
+        <Route
+          path="/contact-virtual-gatherings"
+          element=<ContactVirtualGatherings />
+        />
+        <Route path="/work-with-virtual-gatherings" element=<CareersPage /> />
       </Routes>
     </ThemeProvider>
   )
