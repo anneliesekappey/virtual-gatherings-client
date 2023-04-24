@@ -3,7 +3,6 @@ import { ThemeProvider } from '@mui/material'
 import { Routes, Route } from 'react-router-dom'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
-import { HomePage } from './pages/HomePage'
 import { AboutUsPage } from './pages/AboutUsPage'
 import { BookASession } from './pages/BookASession'
 import { CareersPage } from './pages/CareersPage'
@@ -16,6 +15,7 @@ import { WhatWeOfferPage } from './pages/WhatWeOfferPage'
 import Header from './components/ui/Header'
 import Theme from './components/ui/Theme'
 import Footer from './components/ui/Footer'
+import LandingPage from './components/ui/LandingPage'
 
 const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -30,7 +30,7 @@ const App = () => {
         setSelectedIndex={setSelectedIndex}
       />
       <Routes>
-        <Route path="/" element=<HomePage /> />
+        <Route path="/" element=<LandingPage /> />
         <Route path="/signup" element=<Signup /> />
         <Route path="/login" element=<Login /> />
         <Route path="/book-a-session" element=<BookASession /> />

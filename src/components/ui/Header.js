@@ -491,7 +491,7 @@ const Header = (props) => {
 
   return (
     <ElevationScroll>
-      <AppBar position="fixed">
+      <AppBar position="sticky">
         <Toolbar sx={{ margin: 1.5 }}>
           <Button component={Link} to="/">
             <Typography variant="h6" color="secondary">
