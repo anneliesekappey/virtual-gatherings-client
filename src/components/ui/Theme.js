@@ -73,5 +73,26 @@ export default createTheme({
       fontWeight: 50,
       fontFamily: ['Cardo', 'Montserrat'],
     },
+    subtitle1: {
+      color: '#868686',
+      fontFamily: 'Montserrat',
+      fontSize: '1.25rem',
+      fontWeight: 300,
+    },
+    subtitle2: {
+      fontFamily: 'Montserrat',
+      fontWeight: 'bold',
+      color: '#4F6367',
+      fontSize: '1.25rem',
+    },
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
   },
 })

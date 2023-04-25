@@ -14,6 +14,7 @@ const Footer = (props) => {
           sx={{
             backgroundColor: '#7A9E9F',
             height: '200px',
+            marginTop: '30px',
           }}
         >
           <Grid item margin="3em">

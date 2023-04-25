@@ -149,6 +149,9 @@ const Header = (props) => {
             fontSize: '1rem',
             minWidth: 5,
             marginLeft: '10px',
+            '&:hover': {
+              opacity: 0.7,
+            },
           }}
           label="Home"
         />
@@ -163,6 +166,9 @@ const Header = (props) => {
             fontSize: '1rem',
             minWidth: 5,
             marginLeft: '10px',
+            '&:hover': {
+              opacity: 0.7,
+            },
           }}
           label="About Us"
         />
@@ -174,6 +180,9 @@ const Header = (props) => {
             fontSize: '1rem',
             minWidth: 5,
             marginLeft: '10px',
+            '&:hover': {
+              opacity: 0.7,
+            },
           }}
           label="Our Services"
         />
@@ -185,6 +194,9 @@ const Header = (props) => {
             fontSize: '1rem',
             minWidth: 5,
             marginLeft: '10px',
+            '&:hover': {
+              opacity: 0.7,
+            },
           }}
           label="Resources"
         />
@@ -196,6 +208,9 @@ const Header = (props) => {
             fontSize: '1rem',
             minWidth: 5,
             marginLeft: '10px',
+            '&:hover': {
+              opacity: 0.7,
+            },
           }}
           label="Contact Us"
         />
