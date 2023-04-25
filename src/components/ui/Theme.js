@@ -16,12 +16,12 @@ export default createTheme({
     },
     secondary: {
       main: '#7A9E9F',
-      light: 'EEF5D8',
+      light: '#EEF5D8',
       dark: `${vgRed}`,
     },
     terciary: {
       main: `${vgRed}`,
-      light: 'EEF5D8',
+      light: '#EEF5D8',
       dark: `${vgRed}`,
     },
   },
@@ -60,18 +60,30 @@ export default createTheme({
       },
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
   typography: {
     h3: {
       fontWeight: 300,
-      fontFamily: ['Cardo', 'Montserrat'],
+      fontFamily: 'Cardo',
+      fontSize: '2.5rem',
+      color: '#4F6367',
     },
     h4: {
       fontWeight: 100,
-      fontFamily: ['Cardo', 'Montserrat'],
+      fontFamily: 'Cardo',
     },
     h6: {
       fontWeight: 50,
-      fontFamily: ['Cardo', 'Montserrat'],
+      fontFamily: 'Cardo',
+      color: '#7A9E9F',
     },
     subtitle1: {
       color: '#868686',
@@ -85,14 +97,12 @@ export default createTheme({
       color: '#4F6367',
       fontSize: '1.25rem',
     },
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 600,
-        md: 900,
-        lg: 1200,
-        xl: 1536,
-      },
+    p: {
+      color: '#868686',
+      fontFamily: 'Montserrat',
+      fontSize: '1.1rem',
+      lineHeight: '1.3em',
+      fontWeight: 100,
     },
   },
 })

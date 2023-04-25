@@ -3,7 +3,6 @@ import { ThemeProvider } from '@mui/material'
 import { Routes, Route } from 'react-router-dom'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
-import { AboutUsPage } from './pages/AboutUsPage'
 import { BookASession } from './pages/BookASession'
 import { CareersPage } from './pages/CareersPage'
 import { ContactVirtualGatherings } from './pages/ContactVirtualGatherings'
@@ -16,6 +15,7 @@ import Header from './components/ui/Header'
 import Theme from './components/ui/Theme'
 import Footer from './components/ui/Footer'
 import LandingPage from './components/ui/LandingPage'
+import AboutUs from './components/ui/AboutUs'
 
 const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -38,7 +38,7 @@ const App = () => {
           path="/purchase-a-session-or-a-bundle"
           element=<ShoppingCart />
         />
-        <Route path="/about-virtual-gatherings" element=<AboutUsPage /> />
+        <Route path="/about-virtual-gatherings" element=<AboutUs /> />
         <Route path="/learn-more" element=<LearnMorePage /> />
         <Route path="/online-meetings" element=<WhatWeOfferPage /> />
         <Route
