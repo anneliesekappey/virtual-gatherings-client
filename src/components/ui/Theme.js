@@ -79,6 +79,7 @@ export default createTheme({
     h4: {
       fontWeight: 100,
       fontFamily: 'Cardo',
+      color: '#4F6367',
     },
     h6: {
       fontWeight: 50,
