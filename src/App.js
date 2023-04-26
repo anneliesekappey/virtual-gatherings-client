@@ -10,12 +10,12 @@ import { FriendsOfVirtualGatherings } from './pages/FriendsOfVirtualGatheringsPa
 import { LearnMorePage } from './pages/LearnMorePage'
 import { ResourcesPage } from './pages/ResourcesPage'
 import { ShoppingCart } from './pages/ShoppingCart'
-import { WhatWeOfferPage } from './pages/WhatWeOfferPage'
 import Header from './components/ui/Header'
 import Theme from './components/ui/Theme'
 import Footer from './components/ui/Footer'
 import LandingPage from './components/ui/LandingPage'
 import AboutUs from './components/ui/AboutUs'
+import Services from './components/ui/Services'
 
 const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -40,7 +40,7 @@ const App = () => {
         />
         <Route path="/about-virtual-gatherings" element=<AboutUs /> />
         <Route path="/learn-more" element=<LearnMorePage /> />
-        <Route path="/online-meetings" element=<WhatWeOfferPage /> />
+        <Route path="/online-meetings" element=<Services /> />
         <Route
           path="/games-information-resources-for-patients-living-with-dementia-and-alzheimers"
           element=<ResourcesPage />

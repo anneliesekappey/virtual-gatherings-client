@@ -13,14 +13,8 @@ const LandingPage = () => {
   const matchesSM = useMediaQuery('(max-width:600px)')
 
   return (
-    <Grid
-      container
-      sx={{ marginBottom: '60px' }}
-      direction="column"
-      backgroundColor="#FAF9F6"
-    >
+    <Grid container direction="column" backgroundColor="#FAF9F6">
       <Grid item>
-        {' '}
         {/*-----Top-----*/}
         <Grid
           container
@@ -354,6 +348,111 @@ const LandingPage = () => {
               width={336}
               height={251}
             />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        {/*------Information Block -----*/}
+        <Grid
+          container
+          alignItems={'center'}
+          justifyContent={matchesSM ? 'space-around' : 'space-between'}
+          sx={{
+            height: '23em',
+            marginTop: '5em',
+            marginBottom: '5em',
+            backgroundImage: matchesSM
+              ? 'linear-gradient(to right, #FE5F55, #FAF9F6)'
+              : 'linear-gradient(to bottom, #FE5F55, #FAF9F6)',
+            boxShadow: 3,
+            borderRadius: 3,
+            paddingTop: matchesSM ? '0.5em' : '1em',
+            paddingRight: matchesSM ? 0 : '2em',
+            paddingLeft: matchesSM ? 0 : '2em',
+            paddingBottom: matchesSM ? '0.5em' : '1.3em',
+            width: '100%',
+          }}
+          direction={matchesSM ? 'column' : 'row'}
+          textAlign={matchesSM ? 'left' : 'inherit'}
+        >
+          <Grid
+            item
+            sx={{ marginLeft: matchesSM ? '1em' : '3em', textAlign: 'left' }}
+          >
+            <Grid
+              container
+              direction="column"
+              textAlign={matchesSM ? 'left' : 'inherit'}
+            >
+              <Typography variant="h4" sx={{ color: 'white' }}>
+                About Us
+              </Typography>
+              <Typography variant="subtitle1" sx={{ color: 'white' }}>
+                Get to know us better
+              </Typography>
+              <Grid
+                container
+                justifyContent={matchesSM ? 'left' : 'space-between'}
+              >
+                <Button
+                  variant="outlined"
+                  component={Link}
+                  to="/about-virtual-gatherings"
+                  sx={{
+                    borderColor: '#EEF5D8',
+                    color: 'white',
+                    borderWidth: 2,
+                    textTransform: 'none',
+                    fontFamily: 'Cardo',
+                    fontWeight: 'bold',
+                    fontSize: '0.8rem',
+                    height: 35,
+                    width: matchesSM ? 'auto' : 133,
+                    padding: 1,
+                  }}
+                >
+                  Read More
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid
+            item
+            sx={{ marginRight: matchesSM ? '1em' : '3em', textAlign: 'right' }}
+          >
+            <Grid
+              container
+              direction="column"
+              textAlign={matchesSM ? 'left' : 'inherit'}
+            >
+              <Typography variant="h4" sx={{ color: 'white' }}>
+                Contact Us
+              </Typography>
+              <Typography variant="subtitle1" sx={{ color: 'white' }}>
+                Talk to us
+              </Typography>
+              <Grid container justifyContent={matchesSM ? 'left' : 'right'}>
+                <Button
+                  variant="outlined"
+                  component={Link}
+                  to="/contact-virtual-gatherings"
+                  sx={{
+                    borderColor: '#EEF5D8',
+                    color: 'white',
+                    borderWidth: 2,
+                    textTransform: 'none',
+                    fontFamily: 'Cardo',
+                    fontWeight: 'bold',
+                    fontSize: '0.8rem',
+                    height: 35,
+                    width: matchesSM ? 'auto' : 133,
+                    padding: 1,
+                  }}
+                >
+                  Read More
+                </Button>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
