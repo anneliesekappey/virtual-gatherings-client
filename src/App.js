@@ -7,7 +7,6 @@ import { BookASession } from './pages/BookASession'
 import { CareersPage } from './pages/CareersPage'
 import { ContactVirtualGatherings } from './pages/ContactVirtualGatherings'
 import { FriendsOfVirtualGatherings } from './pages/FriendsOfVirtualGatheringsPage'
-import { LearnMorePage } from './pages/LearnMorePage'
 import { ResourcesPage } from './pages/ResourcesPage'
 import { ShoppingCart } from './pages/ShoppingCart'
 import Header from './components/ui/Header'
@@ -16,6 +15,7 @@ import Footer from './components/ui/Footer'
 import LandingPage from './components/ui/LandingPage'
 import AboutUs from './components/ui/AboutUs'
 import Services from './components/ui/Services'
+import LearnMore from './components/ui/LearnMore'
 
 const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -39,7 +39,7 @@ const App = () => {
           element=<ShoppingCart />
         />
         <Route path="/about-virtual-gatherings" element=<AboutUs /> />
-        <Route path="/learn-more" element=<LearnMorePage /> />
+        <Route path="/learn-more" element=<LearnMore /> />
         <Route path="/online-meetings" element=<Services /> />
         <Route
           path="/games-information-resources-for-patients-living-with-dementia-and-alzheimers"

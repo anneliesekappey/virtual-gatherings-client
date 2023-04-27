@@ -10,12 +10,31 @@ import MaryEllen from '../../images/team/MaryEllen.jpeg'
 import Jenn from '../../images/team/Jenn.jpeg'
 import Danielle from '../../images/team/Danielle.jpeg'
 import Kerianne from '../../images/team/Kerianne.jpeg'
+import { ArrowForward } from '@mui/icons-material'
+import { IconButton } from '@mui/material'
+import { Hidden } from '@mui/material'
 
 const AboutUs = () => {
   const matchesSM = useMediaQuery('(max-width:600px)')
 
   return (
     <div>
+      <Hidden mdDown>
+        <Grid container direction="column">
+          <Grid
+            item
+            sx={{
+              marginTop: '0.7em',
+              textAlign: 'right',
+              marginRight: '1.4em',
+            }}
+          >
+            <IconButton component={Link} to="/learn-more">
+              <ArrowForward></ArrowForward>
+            </IconButton>
+          </Grid>
+        </Grid>
+      </Hidden>
       <Grid
         container
         display={'flex'}
@@ -26,14 +45,14 @@ const AboutUs = () => {
         <Grid item>
           <Grid
             container
-            sx={{ marginTop: '2em' }}
+            sx={{ marginTop: '1.7em' }}
             //   alignItems={'center'}
           >
             <Card
               sx={{
                 backgroundColor: '#B8D8D8',
                 boxShadow: 15,
-                borderRadius: 15,
+                borderRadius: matchesSM ? 0 : 15,
                 paddingTop: '1em',
                 paddingRight: '2em',
                 paddingLeft: '2em',
@@ -124,7 +143,7 @@ const AboutUs = () => {
         <Grid item>
           <Grid
             container
-            sx={{ marginTop: '2em' }}
+            sx={{ marginTop: '1.7em' }}
             //   alignItems={'center'}
             //   justifyContent={'space-between'}
           >
@@ -132,7 +151,7 @@ const AboutUs = () => {
               sx={{
                 backgroundColor: '#B8D8D8',
                 boxShadow: 15,
-                borderRadius: 15,
+                borderRadius: matchesSM ? 0 : 15,
                 paddingTop: '1em',
                 paddingRight: '2em',
                 paddingLeft: '2em',
@@ -246,7 +265,7 @@ const AboutUs = () => {
               sx={{
                 backgroundColor: '#EEF5D8',
                 boxShadow: 12,
-                borderRadius: 15,
+                borderRadius: matchesSM ? 0 : 15,
                 paddingTop: '0.8em',
                 paddingRight: '1.4em',
                 paddingLeft: '1.4em',
@@ -349,7 +368,7 @@ const AboutUs = () => {
               sx={{
                 backgroundColor: '#EEF5D8',
                 boxShadow: 12,
-                borderRadius: 15,
+                borderRadius: matchesSM ? 0 : 15,
                 paddingTop: '0.8em',
                 paddingRight: '1.4em',
                 paddingLeft: '1.4em',
@@ -449,7 +468,7 @@ const AboutUs = () => {
               sx={{
                 backgroundColor: '#EEF5D8',
                 boxShadow: 12,
-                borderRadius: 15,
+                borderRadius: matchesSM ? 0 : 15,
                 paddingTop: '0.8em',
                 paddingRight: '1.4em',
                 paddingLeft: '1.4em',
@@ -554,7 +573,7 @@ const AboutUs = () => {
               ? 'linear-gradient(to right, #FE5F55, #FAF9F6)'
               : 'linear-gradient(to bottom, #FE5F55, #FAF9F6)',
             boxShadow: 3,
-            borderRadius: 3,
+            borderRadius: matchesSM ? 0 : 3,
             paddingTop: matchesSM ? '0.5em' : '1em',
             paddingRight: matchesSM ? 0 : '2em',
             paddingLeft: matchesSM ? 0 : '2em',
