@@ -59,6 +59,17 @@ export default createTheme({
         },
       },
     },
+    MuiMobileStepper: {
+      styleOverrides: {
+        root: {
+          background: '#FE5F55',
+          opacity: 1,
+          '&:hover': {
+            opacity: 0.8,
+          },
+        },
+      },
+    },
   },
   breakpoints: {
     values: {

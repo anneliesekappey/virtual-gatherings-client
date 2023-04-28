@@ -1,17 +1,134 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Grid, Typography } from '@mui/material'
 import { IconButton } from '@mui/material'
-import { ArrowForward } from '@mui/icons-material'
+import {
+  ArrowForward,
+  KeyboardArrowLeft,
+  KeyboardArrowRight,
+} from '@mui/icons-material'
 import { ArrowBack } from '@mui/icons-material'
 import { Hidden } from '@mui/material'
 import { useMediaQuery } from '@mui/material'
 import { Button } from '@mui/material'
-import ManBackReal from '../../images/screens/ManBackReal.jpg'
-import ManSideReal from '../../images/screens/ManSideReal.jpg'
+// import ManBackReal from '../../images/screens/ManBackReal.jpg'
+// import ManSideReal from '../../images/screens/ManSideReal.jpg'
+import { Box } from '@mui/material'
+import { Paper } from '@mui/material'
+import { MobileStepper } from '@mui/material'
+import { useTheme } from '@emotion/react'
+
+const testimonials = [
+  {
+    label: 'Dear Mary Ellen and Susan',
+    description: `I would like to take this time to
+        acknowledge both of you for the incredible job you are doing with
+        your Virtual Gatherings group. Arthur, who is diagnosed with
+        moderate dementia , is thrilled to participate every Saturday.This
+        disease has transformed him in his daily life from a very verbal ,
+        interested , intelligent , social , engaged person to a very quiet
+        , introverted , apathetic person with cognitive impairments. My
+        heart breaks to watch him just manage in his every day activities.
+        However, on Saturdays he miraculously becomes excited, happy, more
+        verbal , more alert and extroverted. He loves your program and as
+        I pass by I can hear him fully involved and engaged in your
+        various activities. I have him enrolled in other programs through
+        the Alzheimer’s Association ,NYU and the VA. All provide some form
+        of stimulation but none get it as “ right” as both of you. Your
+        activities are so appropriate for his limitations yet help him to
+        feel good about himself and at the same time give him enormous
+        pleasure. This type of stimulation is priceless. I thank you both
+        from the bottom of my heart. It also helps me as a caregiver to
+        feel more lighthearted about his disease. Your ways of making them
+        felt better about themselves transfers to the caregivers who then
+        feel better about the situation. Again I Thank you,`,
+  },
+  {
+    label: 'SECOND TEST',
+    description: `I would like to take this time to
+        acknowledge both of you for the incredible job you are doing with
+        your Virtual Gatherings group. Arthur, who is diagnosed with
+        moderate dementia , is thrilled to participate every Saturday.This
+        disease has transformed him in his daily life from a very verbal ,
+        interested , intelligent , social , engaged person to a very quiet
+        , introverted , apathetic person with cognitive impairments. My
+        heart breaks to watch him just manage in his every day activities.
+        However, on Saturdays he miraculously becomes excited, happy, more
+        verbal , more alert and extroverted. He loves your program and as
+        I pass by I can hear him fully involved and engaged in your
+        various activities. I have him enrolled in other programs through
+        the Alzheimer’s Association ,NYU and the VA. All provide some form
+        of stimulation but none get it as “ right” as both of you. Your
+        activities are so appropriate for his limitations yet help him to
+        feel good about himself and at the same time give him enormous
+        pleasure. This type of stimulation is priceless. I thank you both
+        from the bottom of my heart. It also helps me as a caregiver to
+        feel more lighthearted about his disease. Your ways of making them
+        felt better about themselves transfers to the caregivers who then
+        feel better about the situation. Again I Thank you,`,
+  },
+  {
+    label: 'THIRD TEST',
+    description: `I would like to take this time to
+        acknowledge both of you for the incredible job you are doing with
+        your Virtual Gatherings group. Arthur, who is diagnosed with
+        moderate dementia , is thrilled to participate every Saturday.This
+        disease has transformed him in his daily life from a very verbal ,
+        interested , intelligent , social , engaged person to a very quiet
+        , introverted , apathetic person with cognitive impairments. My
+        heart breaks to watch him just manage in his every day activities.
+        However, on Saturdays he miraculously becomes excited, happy, more
+        verbal , more alert and extroverted. He loves your program and as
+        I pass by I can hear him fully involved and engaged in your
+        various activities. I have him enrolled in other programs through
+        the Alzheimer’s Association ,NYU and the VA. All provide some form
+        of stimulation but none get it as “ right” as both of you. Your
+        activities are so appropriate for his limitations yet help him to
+        feel good about himself and at the same time give him enormous
+        pleasure. This type of stimulation is priceless. I thank you both
+        from the bottom of my heart. It also helps me as a caregiver to
+        feel more lighthearted about his disease. Your ways of making them
+        felt better about themselves transfers to the caregivers who then
+        feel better about the situation. Again I Thank you,`,
+  },
+  {
+    label: 'FOURTH TEST',
+    description: `I would like to take this time to
+        acknowledge both of you for the incredible job you are doing with
+        your Virtual Gatherings group. Arthur, who is diagnosed with
+        moderate dementia , is thrilled to participate every Saturday.This
+        disease has transformed him in his daily life from a very verbal ,
+        interested , intelligent , social , engaged person to a very quiet
+        , introverted , apathetic person with cognitive impairments. My
+        heart breaks to watch him just manage in his every day activities.
+        However, on Saturdays he miraculously becomes excited, happy, more
+        verbal , more alert and extroverted. He loves your program and as
+        I pass by I can hear him fully involved and engaged in your
+        various activities. I have him enrolled in other programs through
+        the Alzheimer’s Association ,NYU and the VA. All provide some form
+        of stimulation but none get it as “ right” as both of you. Your
+        activities are so appropriate for his limitations yet help him to
+        feel good about himself and at the same time give him enormous
+        pleasure. This type of stimulation is priceless. I thank you both
+        from the bottom of my heart. It also helps me as a caregiver to
+        feel more lighthearted about his disease. Your ways of making them
+        felt better about themselves transfers to the caregivers who then
+        feel better about the situation. Again I Thank you,`,
+  },
+]
 
 const LearnMore = () => {
   const matchesSM = useMediaQuery('(max-width:600px)')
+  const [activeStep, setActiveStep] = useState(0)
+  const maxSteps = testimonials.length
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1)
+  }
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1)
+  }
 
   return (
     <div>
@@ -47,8 +164,103 @@ const LearnMore = () => {
             </Grid>
           </Grid>
         </Hidden>
-        <Grid item>
-          <Grid
+        <Grid container direction="row" justifyContent={'center'}>
+          <Grid item>
+            <Box sx={{ maxWidth: 600, flexGrow: 1 }}>
+              <Paper
+                square
+                elevation={15}
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  height: 80,
+                  pl: 2,
+                  bgcolor: '#FAF9F6',
+                  color: '#FE5F55',
+                  borderRadius: 1,
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontFamily: 'Montserrat',
+                    lineHeight: '1.3em',
+                    fontVariant: 'small-caps',
+                    fontSize: '1.3em',
+                  }}
+                >
+                  {testimonials[activeStep].label}
+                </Typography>
+              </Paper>
+              <Box
+                sx={{
+                  height: 390,
+                  maxWidth: 600,
+                  //   width: '100%',
+                  p: 2,
+                }}
+              >
+                <Paper
+                  square
+                  elevation={6}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    height: 390,
+                    pl: 2,
+                    bgcolor: '#FAF9F6',
+                    color: '#868686',
+                    borderRadius: 2,
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontFamily: 'Cardo',
+                      lineHeight: '1.2em',
+                      fontSize: '1.1em',
+                    }}
+                  >
+                    {testimonials[activeStep].description}
+                  </Typography>
+                </Paper>
+              </Box>
+              <MobileStepper
+                variant="progress"
+                steps={maxSteps}
+                position="static"
+                activeStep={activeStep}
+                nextButton={
+                  <Button
+                    size="medium"
+                    onClick={handleNext}
+                    disabled={activeStep === maxSteps - 1}
+                  >
+                    Next
+                    {useTheme.direction === 'rtl' ? (
+                      <KeyboardArrowRight />
+                    ) : (
+                      <KeyboardArrowRight />
+                    )}
+                  </Button>
+                }
+                backButton={
+                  <Button
+                    size="medium"
+                    onClick={handleBack}
+                    disabled={activeStep === 0}
+                  >
+                    {useTheme.direction === 'rtl' ? (
+                      <KeyboardArrowLeft />
+                    ) : (
+                      <KeyboardArrowLeft />
+                    )}
+                    Back
+                  </Button>
+                }
+              />
+            </Box>
+          </Grid>
+        </Grid>
+        {/* <Grid
             container
             display={'flex'}
             flexDirection="row"
@@ -83,7 +295,7 @@ const LearnMore = () => {
               feel better about the situation. Again I Thank you,
             </Typography>
           </Grid>
-        </Grid>
+        </Grid> */}
         <Grid
           container
           direction="column"
