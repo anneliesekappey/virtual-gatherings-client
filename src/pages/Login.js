@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import EntryCard from '../components/EntryCard'
-import InputGroup from '../components/InputGroup'
 import Api from '../utils/api.utils'
-import { EntryPage, PageHeader } from './style'
-import Button from '../components/Button'
-// import { ImageLogo1 } from "../components/commons";
-// import imageLogo from "../components/images/dopamine.png";
-
-// import {PositionContainer} from '../components/commons'
+import { Grid } from '@mui/material'
+import { TextField } from '@mui/material'
+import { Typography } from '@mui/material'
+import { Button } from '@mui/material'
+import { useMediaQuery } from '@mui/material'
+import { Card } from '@mui/material'
+import { CardContent } from '@mui/material'
 
 const Login = () => {
+  const matchesSM = useMediaQuery('(max-width:600px)')
+  const matchesLG = useMediaQuery('(max-width:1200px)')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -18,8 +19,8 @@ const Login = () => {
   const sendToMeetings = useNavigate()
   const userNotFound = useNavigate()
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const handleSubmit = async (event) => {
+    event.preventDefault()
     const newLogin = {
       username,
       password,
@@ -35,52 +36,136 @@ const Login = () => {
   }
 
   return (
-    <EntryPage>
-      <PageHeader to="/">{/* <ImageLogo1 src={imageLogo} /> */}</PageHeader>
-      <EntryCard>
-        <h2> Log In </h2>
-        <form
-          onSubmit={(e) => {
-            handleSubmit(e)
-          }}
-        >
-          <InputGroup>
-            <label> Username </label>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => {
-                setUsername(e.target.value)
+    <Grid container direction="row" justifyContent={'center'}>
+      <Card
+        sx={{
+          backgroundColor: '#ffffff',
+          boxShadow:
+            '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+          borderRadius: matchesSM ? 0 : 12,
+          paddingTop: '3em',
+          paddingRight: '2em',
+          paddingLeft: '2em',
+          paddingBottom: '3em',
+          marginTop: '4em',
+          marginBottom: '4em',
+          textAlign: 'center',
+          height: '25rem',
+          width: '30rem',
+        }}
+      >
+        <CardContent>
+          <form
+            onSubmit={(event) => {
+              handleSubmit(event)
+            }}
+          >
+            <Grid
+              item
+              container
+              direction="column"
+              justifyContent={'center'}
+              sx={{
+                marginBottom: matchesSM ? '2em' : matchesLG ? '4em' : 0,
+                marginTop: matchesSM ? '1em' : matchesLG ? '4em' : 0,
               }}
-            />
-          </InputGroup>
-
-          <InputGroup>
-            <label> Password </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value)
-              }}
-            />
-          </InputGroup>
-
-          <Button type="submit" full>
-            Log In
-          </Button>
-        </form>
-        <span>
-          Don't have an account yet?
-          <Link to="/signup"> Sign Up</Link>
-          {error === 'User not found' ? (
-            userNotFound('/signup')
-          ) : (
-            <p>{error}</p>
-          )}
-        </span>
-      </EntryCard>
-    </EntryPage>
+            >
+              <Grid item>
+                <Grid container direction="column">
+                  <Grid item>
+                    <Typography
+                      variant="h3"
+                      sx={{
+                        lineHeight: 1,
+                        fontVariant: 'small-caps',
+                        textAlign: 'center',
+                        paddingBottom: '0.8em',
+                      }}
+                    >
+                      Log In
+                    </Typography>
+                  </Grid>
+                  <Grid item container justifyContent={'center'}>
+                    <Grid item>
+                      <TextField
+                        variant="outlined"
+                        label="Username"
+                        id="username"
+                        value={username}
+                        onChange={(event) => setUsername(event.target.value)}
+                        sx={{
+                          marginTop: '1em',
+                          marginBottom: '0.5em',
+                          width: '20em',
+                        }}
+                      />
+                    </Grid>
+                    <Grid item container justifyContent={'center'}>
+                      <Grid item>
+                        <TextField
+                          variant="outlined"
+                          label="Password"
+                          id="password"
+                          value={password}
+                          onChange={(event) => setPassword(event.target.value)}
+                          sx={{
+                            marginTop: '1em',
+                            marginBottom: '1.2em',
+                            width: '20em',
+                          }}
+                        />
+                      </Grid>
+                    </Grid>
+                    <Grid item container justifyContent={'center'}>
+                      <Grid item>
+                        <Button
+                          type="submit"
+                          sx={{
+                            borderRadius: '10px',
+                            marginLeft: '3px',
+                            marginRight: '2px',
+                            fontFamily: 'Cardo',
+                            fontSize: '1rem',
+                            textTransform: 'none',
+                            fontVariant: 'small-caps',
+                            padding: '3px',
+                            height: '45px',
+                            color: 'white',
+                          }}
+                          variant="contained"
+                          color="secondary"
+                        >
+                          Log In
+                        </Button>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </form>
+          <span
+            style={{
+              display: 'block',
+              marginTop: '5em',
+              color: '#888888',
+              fontSize: '1em',
+            }}
+          >
+            Don't have an account yet?
+            <Link to="/signup" style={{ color: 'inherit' }}>
+              {' '}
+              Sign Up
+            </Link>
+            {error === 'User not found' ? (
+              userNotFound('/signup')
+            ) : (
+              <p>{error}</p>
+            )}
+          </span>
+        </CardContent>
+      </Card>
+    </Grid>
   )
 }
 

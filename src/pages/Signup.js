@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import Button from '../components/Button'
-// import { ImageLogo1 } from "../components/commons";
-import EntryCard from '../components/EntryCard'
-import Input from '../components/Input'
-import InputGroup from '../components/InputGroup'
 import Api from '../utils/api.utils'
-import { EntryPage, PageHeader } from './style'
-// import imageLogo from "../components/images/dopamine.png";
+import { Grid } from '@mui/material'
+import { Card } from '@mui/material'
+import { CardContent } from '@mui/material'
+import { Typography } from '@mui/material'
+import { TextField } from '@mui/material'
+import { Button } from '@mui/material'
+import { useMediaQuery } from '@mui/material'
 
 const Signup = () => {
+  const matchesSM = useMediaQuery('(max-width:600px)')
+  const matchesLG = useMediaQuery('(max-width:1200px)')
+
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [username, setUsername] = useState('')
@@ -19,8 +22,8 @@ const Signup = () => {
 
   const sendToLogin = useNavigate()
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const handleSubmit = async (event) => {
+    event.preventDefault()
     const newUser = {
       firstName,
       lastName,
@@ -39,81 +42,177 @@ const Signup = () => {
   }
 
   return (
-    <EntryPage>
-      <PageHeader to="/">{/* <ImageLogo1 src={imageLogo} /> */}</PageHeader>
-      <EntryCard>
-        <h2> Sign Up </h2>
-        <form
-          onSubmit={(e) => {
-            handleSubmit(e)
-          }}
-        >
-          <InputGroup>
-            <label htmlFor="signup-name"> Name </label>
-            <Input
-              type="text"
-              value={firstName}
-              onChange={(e) => {
-                setFirstName(e.target.value)
+    <Grid container direction="row" justifyContent={'center'}>
+      <Card
+        sx={{
+          backgroundColor: '#ffffff',
+          boxShadow:
+            '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+          borderRadius: matchesSM ? 0 : 12,
+          paddingTop: '2em',
+          paddingRight: '2em',
+          paddingLeft: '2em',
+          paddingBottom: '1.5em',
+          marginTop: '3em',
+          marginBottom: '3em',
+          textAlign: 'center',
+          height: '45rem',
+          width: '40rem',
+        }}
+      >
+        <CardContent>
+          <form
+            onSubmit={(event) => {
+              handleSubmit(event)
+            }}
+          >
+            <Grid
+              item
+              container
+              direction="column"
+              justifyContent={'center'}
+              sx={{
+                marginBottom: matchesSM ? '2em' : matchesLG ? '4em' : 0,
+                marginTop: matchesSM ? '1em' : matchesLG ? '4em' : 0,
               }}
-            />
-          </InputGroup>
-
-          <InputGroup>
-            <label htmlFor="signup-lastname"> Last Name </label>
-            <Input
-              type="text"
-              value={lastName}
-              onChange={(e) => {
-                setLastName(e.target.value)
-              }}
-            />
-          </InputGroup>
-
-          <InputGroup>
-            <label htmlFor="signup-username"> Username </label>
-            <Input
-              type="text"
-              value={username}
-              onChange={(e) => {
-                setUsername(e.target.value)
-              }}
-            />
-          </InputGroup>
-
-          <InputGroup>
-            <label> Email </label>
-            <Input
-              type="text"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value)
-              }}
-            />
-          </InputGroup>
-
-          <InputGroup>
-            <label> Password </label>
-            <Input
-              type="password"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value)
-              }}
-            />
-          </InputGroup>
-
-          <Button type="submit" full>
-            Sign Up
-          </Button>
-        </form>
-        <span>
-          Already have an account?
-          <Link to="/login"> Log In </Link>
-          {error && <p> {error} </p>}
-        </span>
-      </EntryCard>
-    </EntryPage>
+            >
+              <Grid item>
+                <Grid container direction="column">
+                  <Grid item>
+                    <Typography
+                      variant="h3"
+                      sx={{
+                        lineHeight: 1,
+                        fontVariant: 'small-caps',
+                        textAlign: 'center',
+                        paddingBottom: '0.8em',
+                      }}
+                    >
+                      Sign Up
+                    </Typography>
+                  </Grid>
+                  <Grid item container justifyContent={'center'}>
+                    <Grid item>
+                      <TextField
+                        variant="outlined"
+                        label="First Name"
+                        id="firstName"
+                        value={firstName}
+                        onChange={(event) => setFirstName(event.target.value)}
+                        sx={{
+                          marginTop: '1em',
+                          marginBottom: '0.5em',
+                          width: '25em',
+                        }}
+                      />
+                    </Grid>
+                    <Grid item container justifyContent={'center'}>
+                      <Grid item>
+                        <TextField
+                          variant="outlined"
+                          label="Last Name"
+                          id="lastName"
+                          value={lastName}
+                          onChange={(event) => setLastName(event.target.value)}
+                          sx={{
+                            marginTop: '1em',
+                            marginBottom: '1.2em',
+                            width: '25em',
+                          }}
+                        />
+                      </Grid>
+                    </Grid>
+                    <Grid item container justifyContent={'center'}>
+                      <Grid item>
+                        <TextField
+                          variant="outlined"
+                          label="Username"
+                          id="username"
+                          value={username}
+                          onChange={(event) => setUsername(event.target.value)}
+                          sx={{
+                            marginTop: '1em',
+                            marginBottom: '0.5em',
+                            width: '25em',
+                          }}
+                        />
+                      </Grid>
+                    </Grid>
+                    <Grid item container justifyContent={'center'}>
+                      <Grid item>
+                        <TextField
+                          variant="outlined"
+                          label="Email"
+                          id="email"
+                          value={email}
+                          onChange={(event) => setEmail(event.target.value)}
+                          sx={{
+                            marginTop: '1em',
+                            marginBottom: '0.5em',
+                            width: '25em',
+                          }}
+                        />
+                      </Grid>
+                    </Grid>
+                    <Grid item container justifyContent={'center'}>
+                      <Grid item>
+                        <TextField
+                          variant="outlined"
+                          label="Password"
+                          id="password"
+                          value={password}
+                          onChange={(event) => setPassword(event.target.value)}
+                          sx={{
+                            marginTop: '1em',
+                            marginBottom: '3em',
+                            width: '25em',
+                          }}
+                        />
+                      </Grid>
+                    </Grid>
+                    <Grid item container justifyContent={'center'}>
+                      <Grid item>
+                        <Button
+                          type="submit"
+                          sx={{
+                            borderRadius: '10px',
+                            fontFamily: 'Cardo',
+                            fontSize: '1.3rem',
+                            textTransform: 'none',
+                            fontVariant: 'small-caps',
+                            padding: '5px',
+                            height: '45px',
+                            color: 'white',
+                          }}
+                          variant="contained"
+                          color="secondary"
+                        >
+                          Sign Up
+                        </Button>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </form>
+          <span
+            style={{
+              display: 'block',
+              marginTop: '3.6em',
+              color: '#888888',
+              fontSize: '1em',
+            }}
+          >
+            Already have an account?
+            <Link to="/login" style={{ color: 'inherit' }}>
+              Log In
+            </Link>
+            {error && <p> {error} </p>}
+          </span>
+        </CardContent>
+      </Card>
+    </Grid>
   )
 }
 

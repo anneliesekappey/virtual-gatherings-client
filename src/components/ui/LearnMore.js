@@ -37,7 +37,7 @@ const testimonials = [
         pleasure. This type of stimulation is priceless. I thank you both
         from the bottom of my heart. It also helps me as a caregiver to
         feel more lighthearted about his disease. Your ways of making them
-        felt better about themselves transfers to the caregivers who then
+        feel better about themselves transfers to the caregivers who then
         feel better about the situation. Again, I thank you."`,
   },
   {
