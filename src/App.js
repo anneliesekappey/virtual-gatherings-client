@@ -5,7 +5,6 @@ import Signup from './pages/Signup'
 import Login from './pages/Login'
 import { BookASession } from './pages/BookASession'
 import { CareersPage } from './pages/CareersPage'
-import { ContactVirtualGatherings } from './pages/ContactVirtualGatherings'
 import { FriendsOfVirtualGatherings } from './pages/FriendsOfVirtualGatheringsPage'
 import { ResourcesPage } from './pages/ResourcesPage'
 import { ShoppingCart } from './pages/ShoppingCart'
@@ -16,6 +15,7 @@ import LandingPage from './components/ui/LandingPage'
 import AboutUs from './components/ui/AboutUs'
 import Services from './components/ui/Services'
 import LearnMore from './components/ui/LearnMore'
+import Contact from './components/ui/Contact'
 
 const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -49,10 +49,7 @@ const App = () => {
           path="/friends-working-with-patients-living-with-dementia-and-alzheimers"
           element=<FriendsOfVirtualGatherings />
         />
-        <Route
-          path="/contact-virtual-gatherings"
-          element=<ContactVirtualGatherings />
-        />
+        <Route path="/contact-virtual-gatherings" element=<Contact /> />
         <Route path="/work-with-virtual-gatherings" element=<CareersPage /> />
       </Routes>
       <Footer

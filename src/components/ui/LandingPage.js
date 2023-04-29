@@ -51,8 +51,7 @@ const LandingPage = () => {
               }}
             >
               for those with dementia related memory loss
-              <br />
-              music art movement brainteasers languages
+              <br />~ music art movement brainteasers languages ~
             </Typography>
             <Grid
               container

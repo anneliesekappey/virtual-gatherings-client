@@ -70,6 +70,25 @@ export default createTheme({
         },
       },
     },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: `${vgBlue}`,
+          fontSize: '1.3rem',
+          fontFamily: 'Cardo',
+          fontVariant: 'all-small-caps',
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          color: '#4F6367',
+          fontWeight: 300,
+          fontFamily: 'Cardo',
+        },
+      },
+    },
   },
   breakpoints: {
     values: {
