@@ -53,7 +53,7 @@ const Signup = () => {
           paddingRight: '2em',
           paddingLeft: '2em',
           paddingBottom: '1.5em',
-          marginTop: '3em',
+          marginTop: matchesSM ? 0 : '3em',
           marginBottom: '3em',
           textAlign: 'center',
           height: '45rem',

@@ -418,7 +418,7 @@ const Services = () => {
                       <span style={{ color: '#FE5F55', fontWeight: 'bold' }}>
                         Registration
                       </span>{' '}
-                      Registration to the Gatherings
+                      to the Gatherings
                     </Typography>
                   </Grid>
                   <Grid item>

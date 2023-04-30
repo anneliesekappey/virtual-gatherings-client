@@ -3,7 +3,7 @@ import axios from 'axios'
 class Api {
   constructor() {
     this.api = axios.create({
-      baseURL: 'https://mongodb://localhost:27017/virtual-gatherings',
+      baseURL: 'https://mongodb://localhost:27017/virtualgatherings',
     })
 
     this.api.interceptors.request.use(
@@ -50,9 +50,30 @@ class Api {
     }
   }
 
+  getUser = async () => {
+    try {
+      const { data } = await this.api.get('/user')
+      return data
+    } catch (error) {
+      throw error
+    }
+  }
+
   getMeetings = async () => {
     try {
       const { data } = await this.api.get('/online-meetings')
+      return data
+    } catch (error) {
+      throw error
+    }
+  }
+
+  addMeeting = async (newMeeting) => {
+    try {
+      const { data } = await this.api.post(
+        '/purchase-a-session-or-a-bundle',
+        newMeeting
+      )
       return data
     } catch (error) {
       throw error

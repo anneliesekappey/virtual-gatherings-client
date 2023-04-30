@@ -3,7 +3,6 @@ import { ThemeProvider } from '@mui/material'
 import { Routes, Route } from 'react-router-dom'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
-import { BookASession } from './pages/BookASession'
 import { CareersPage } from './pages/CareersPage'
 import { FriendsOfVirtualGatherings } from './pages/FriendsOfVirtualGatheringsPage'
 import { ResourcesPage } from './pages/ResourcesPage'
@@ -16,6 +15,7 @@ import AboutUs from './components/ui/AboutUs'
 import Services from './components/ui/Services'
 import LearnMore from './components/ui/LearnMore'
 import Contact from './components/ui/Contact'
+import BookASession from './pages/BookASession'
 
 const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(0)
