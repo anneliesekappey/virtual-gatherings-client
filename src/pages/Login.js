@@ -12,6 +12,7 @@ import { CardContent } from '@mui/material'
 const Login = () => {
   const matchesSM = useMediaQuery('(max-width:600px)')
   const matchesLG = useMediaQuery('(max-width:1200px)')
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -28,7 +29,7 @@ const Login = () => {
 
     try {
       await Api.login(newLogin)
-      sendToMeetings('/online-meetings')
+      sendToMeetings('/book-a-session')
     } catch (error) {
       setError(error)
       console.log(error)
@@ -43,12 +44,12 @@ const Login = () => {
           boxShadow:
             '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
           borderRadius: matchesSM ? 0 : 12,
-          paddingTop: '3em',
+          paddingTop: matchesLG ? '3em' : '1.5em',
           paddingRight: '2em',
           paddingLeft: '2em',
-          paddingBottom: '3em',
-          marginTop: '4em',
-          marginBottom: '4em',
+          paddingBottom: matchesLG ? '3em' : '1.5em',
+          marginTop: matchesLG ? '4em' : '2em',
+          marginBottom: matchesLG ? '4em' : '2em',
           textAlign: 'center',
           height: '25rem',
           width: '30rem',
@@ -147,7 +148,7 @@ const Login = () => {
           <span
             style={{
               display: 'block',
-              marginTop: '5em',
+              marginTop: '2em',
               color: '#888888',
               fontSize: '1em',
             }}
