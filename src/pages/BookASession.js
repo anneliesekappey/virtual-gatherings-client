@@ -22,7 +22,7 @@ const BookASession = (props) => {
 
   const sendToCart = useNavigate()
   const addMeetingToCart = async (
-    title,
+    name,
     description,
     days,
     time,
@@ -30,7 +30,7 @@ const BookASession = (props) => {
     price
   ) => {
     const meeting = {
-      title,
+      title: name,
       description,
       days,
       time,

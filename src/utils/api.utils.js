@@ -3,7 +3,7 @@ import axios from 'axios'
 class Api {
   constructor() {
     this.api = axios.create({
-      baseURL: 'https://mongodb://localhost:27017/virtualgatherings',
+      baseURL: 'https://doubtful-red-fish.cyclic.app/',
     })
 
     this.api.interceptors.request.use(
@@ -61,7 +61,7 @@ class Api {
 
   getMeetings = async () => {
     try {
-      const { data } = await this.api.get('/online-meetings')
+      const { data } = await this.api.get('/book-a-session')
       return data
     } catch (error) {
       throw error
