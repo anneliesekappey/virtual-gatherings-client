@@ -6,7 +6,6 @@ import Login from './pages/Login'
 import { CareersPage } from './pages/CareersPage'
 import { FriendsOfVirtualGatherings } from './pages/FriendsOfVirtualGatheringsPage'
 import { ResourcesPage } from './pages/ResourcesPage'
-import { ShoppingCart } from './pages/ShoppingCart'
 import Header from './components/ui/Header'
 import Theme from './components/ui/Theme'
 import Footer from './components/ui/Footer'
@@ -15,7 +14,8 @@ import AboutUs from './components/ui/AboutUs'
 import Services from './components/ui/Services'
 import LearnMore from './components/ui/LearnMore'
 import Contact from './components/ui/Contact'
-import BookASession from './pages/BookASession'
+import ShoppingCart from './pages/ShoppingCart'
+// import BookASession from './pages/BookASession'
 
 const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -33,11 +33,11 @@ const App = () => {
         <Route path="/" element=<LandingPage /> />
         <Route path="/signup" element=<Signup /> />
         <Route path="/login" element=<Login /> />
-        <Route path="/book-a-session" element=<BookASession /> />
-        <Route
+        <Route path="/book-a-session" element=<ShoppingCart /> />
+        {/* <Route
           path="/purchase-a-session-or-a-bundle"
           element=<ShoppingCart />
-        />
+        /> */}
         <Route path="/about-virtual-gatherings" element=<AboutUs /> />
         <Route path="/learn-more" element=<LearnMore /> />
         <Route path="/online-meetings" element=<Services /> />

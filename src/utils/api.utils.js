@@ -80,6 +80,15 @@ class Api {
     }
   }
 
+  deleteMeeting = async (id) => {
+    try {
+      await this.api.delete(`/purchase-a-session-or-a-bundle/${id}`)
+      this.getMeetings()
+    } catch (error) {
+      throw error
+    }
+  }
+
   putUsername = async (username) => {
     try {
       await this.api.put('/user/edit-username', username)

@@ -43,11 +43,7 @@ const AboutUs = () => {
         justifyContent={'space-evenly'}
       >
         <Grid item>
-          <Grid
-            container
-            sx={{ marginTop: '1.7em' }}
-            //   alignItems={'center'}
-          >
+          <Grid container sx={{ marginTop: '1.7em' }}>
             <Card
               sx={{
                 backgroundColor: '#B8D8D8',
@@ -141,12 +137,7 @@ const AboutUs = () => {
           </Grid>
         </Grid>
         <Grid item>
-          <Grid
-            container
-            sx={{ marginTop: '1.7em' }}
-            //   alignItems={'center'}
-            //   justifyContent={'space-between'}
-          >
+          <Grid container sx={{ marginTop: '1.7em' }}>
             <Card
               sx={{
                 backgroundColor: '#B8D8D8',

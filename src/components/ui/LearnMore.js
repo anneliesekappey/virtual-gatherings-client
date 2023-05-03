@@ -126,18 +126,18 @@ const LearnMore = () => {
         </Hidden>
         <Grid container direction="row" justifyContent={'center'}>
           <Grid item>
-            <Box sx={{ maxWidth: 700, flexGrow: 1 }}>
+            <Box sx={{ maxWidth: matchesSM ? 500 : 700, flexGrow: 1 }}>
               <Paper
                 square
-                elevation={15}
+                elevation={matchesSM ? 6 : 15}
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
-                  height: 70,
-                  padding: 3,
+                  height: matchesSM ? 80 : 70,
+                  padding: matchesSM ? 3 : 3,
                   bgcolor: '#FAF9F6',
                   color: '#FE5F55',
-                  borderRadius: 1,
+                  borderRadius: matchesSM ? 0 : 1,
                 }}
               >
                 <Typography
@@ -153,8 +153,8 @@ const LearnMore = () => {
               </Paper>
               <Box
                 sx={{
-                  height: 410,
-                  maxWidth: 700,
+                  height: matchesSM ? 700 : 410,
+                  maxWidth: matchesSM ? 500 : 700,
                   width: '100%',
                   paddingTop: 1.5,
                   paddingBottom: 5,
@@ -166,14 +166,14 @@ const LearnMore = () => {
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    height: 410,
+                    height: matchesSM ? 700 : 410,
                     paddingLeft: 3,
                     paddingRight: 3,
                     paddingTop: 0.4,
                     paddingBottom: 0.4,
                     bgcolor: '#FAF9F6',
                     color: '#868686',
-                    borderRadius: 2,
+                    borderRadius: matchesSM ? 0 : 2,
                   }}
                 >
                   <Typography
@@ -233,9 +233,9 @@ const LearnMore = () => {
           justifyContent={'center'}
           sx={{
             paddingTop: '2em',
-            paddingRight: '6em',
+            paddingRight: matchesSM ? '2em' : '6em',
             paddingBottom: '3em',
-            paddingLeft: '6em',
+            paddingLeft: matchesSM ? '2em' : '6em',
           }}
         >
           <Grid item>

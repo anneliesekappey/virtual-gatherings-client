@@ -13,7 +13,12 @@ const LandingPage = () => {
   const matchesSM = useMediaQuery('(max-width:600px)')
 
   return (
-    <Grid container direction="column" backgroundColor="#FAF9F6">
+    <Grid
+      container
+      direction="column"
+      backgroundColor="#FAF9F6"
+      width={matchesSM ? 'auto' : undefined}
+    >
       <Grid item>
         {/*-----Top-----*/}
         <Grid
@@ -26,7 +31,11 @@ const LandingPage = () => {
           <Grid
             sm
             item
-            sx={{ minWidth: '21.5em', marginLeft: matchesSM ? 0 : '1em' }}
+            width={matchesSM ? 'auto' : undefined}
+            sx={{
+              minWidth: matchesSM ? undefined : '21.5em',
+              marginLeft: matchesSM ? 0 : '1em',
+            }}
           >
             <Typography
               variant="h4"
@@ -57,6 +66,7 @@ const LandingPage = () => {
               container
               justifyContent={'center'}
               sx={{ marginTop: '1.8em' }}
+              width={matchesSM ? 'auto' : undefined}
             >
               <Grid item>
                 <Button
@@ -69,8 +79,8 @@ const LandingPage = () => {
                     color: 'white',
                     backgroundColor: '#7A9E9F',
                     height: 45,
-                    width: 145,
-                    marginRight: 6,
+                    width: matchesSM ? 120 : 145,
+                    marginRight: matchesSM ? 2 : 6,
                     '&:hover': {
                       backgroundColor: '#FE5F55',
                     },
@@ -92,7 +102,7 @@ const LandingPage = () => {
                     fontWeight: 'bold',
                     fontSize: '0.9rem',
                     height: 45,
-                    width: 145,
+                    width: matchesSM ? 120 : 145,
                   }}
                   variant="outlined"
                 >
@@ -105,10 +115,10 @@ const LandingPage = () => {
             item
             sx={{
               maxWidth: '58em',
-              minWidth: '18em',
+              minWidth: matchesSM ? undefined : '18em',
               marginTop: '2em',
-              marginLeft: '4%',
-              marginRight: '3%',
+              marginLeft: matchesSM ? 0 : '4%',
+              marginRight: matchesSM ? 0 : '3%',
             }}
           >
             <img src={mainPicture} alt="Happy Elderly People" />
@@ -358,25 +368,25 @@ const LandingPage = () => {
           justifyContent={matchesSM ? 'space-around' : 'space-between'}
           sx={{
             height: '23em',
-            marginTop: '5em',
-            marginBottom: '5em',
+            marginTop: matchesSM ? '2em' : '5em',
+            marginBottom: matchesSM ? '2em' : '5em',
             backgroundImage: matchesSM
               ? 'linear-gradient(to right, #FE5F55, #FAF9F6)'
               : 'linear-gradient(to bottom, #FE5F55, #FAF9F6)',
             boxShadow: 3,
-            borderRadius: 3,
+            borderRadius: matchesSM ? 0 : 3,
             paddingTop: matchesSM ? '0.5em' : '1em',
             paddingRight: matchesSM ? 0 : '2em',
             paddingLeft: matchesSM ? 0 : '2em',
             paddingBottom: matchesSM ? '0.5em' : '1.3em',
-            width: '100%',
+            width: matchesSM ? 420 : '100%',
           }}
           direction={matchesSM ? 'column' : 'row'}
           textAlign={matchesSM ? 'left' : 'inherit'}
         >
           <Grid
             item
-            sx={{ marginLeft: matchesSM ? '1em' : '3em', textAlign: 'left' }}
+            sx={{ marginLeft: matchesSM ? 0 : '3em', textAlign: 'left' }}
           >
             <Grid
               container

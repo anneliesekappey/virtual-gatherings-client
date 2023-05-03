@@ -49,9 +49,9 @@ const Signup = () => {
           boxShadow:
             '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
           borderRadius: matchesSM ? 0 : 12,
-          paddingTop: '2em',
-          paddingRight: '2em',
-          paddingLeft: '2em',
+          paddingTop: matchesSM ? '0.6em' : '2em',
+          paddingRight: matchesSM ? 0 : '2em',
+          paddingLeft: matchesSM ? 0 : '2em',
           paddingBottom: '1.5em',
           marginTop: matchesSM ? 0 : '3em',
           marginBottom: '3em',
@@ -102,7 +102,7 @@ const Signup = () => {
                         sx={{
                           marginTop: '1em',
                           marginBottom: '0.5em',
-                          width: '25em',
+                          width: matchesSM ? '21.5em' : '25em',
                         }}
                       />
                     </Grid>
@@ -117,7 +117,7 @@ const Signup = () => {
                           sx={{
                             marginTop: '1em',
                             marginBottom: '1.2em',
-                            width: '25em',
+                            width: matchesSM ? '21.5em' : '25em',
                           }}
                         />
                       </Grid>
@@ -133,7 +133,7 @@ const Signup = () => {
                           sx={{
                             marginTop: '1em',
                             marginBottom: '0.5em',
-                            width: '25em',
+                            width: matchesSM ? '21.5em' : '25em',
                           }}
                         />
                       </Grid>
@@ -149,7 +149,7 @@ const Signup = () => {
                           sx={{
                             marginTop: '1em',
                             marginBottom: '0.5em',
-                            width: '25em',
+                            width: matchesSM ? '21.5em' : '25em',
                           }}
                         />
                       </Grid>
@@ -165,7 +165,7 @@ const Signup = () => {
                           sx={{
                             marginTop: '1em',
                             marginBottom: '3em',
-                            width: '25em',
+                            width: matchesSM ? '21.5em' : '25em',
                           }}
                         />
                       </Grid>

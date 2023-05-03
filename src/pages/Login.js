@@ -44,7 +44,7 @@ const Login = () => {
           boxShadow:
             '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
           borderRadius: matchesSM ? 0 : 12,
-          paddingTop: matchesLG ? '3em' : '1.5em',
+          paddingTop: matchesSM ? '0.8em' : matchesLG ? '3em' : '1.5em',
           paddingRight: '2em',
           paddingLeft: '2em',
           paddingBottom: matchesLG ? '3em' : '1.5em',
@@ -68,7 +68,7 @@ const Login = () => {
               justifyContent={'center'}
               sx={{
                 marginBottom: matchesSM ? '2em' : matchesLG ? '4em' : 0,
-                marginTop: matchesSM ? '1em' : matchesLG ? '4em' : 0,
+                marginTop: matchesSM ? '0.6em' : matchesLG ? '4em' : 0,
               }}
             >
               <Grid item>
@@ -111,7 +111,7 @@ const Login = () => {
                           onChange={(event) => setPassword(event.target.value)}
                           sx={{
                             marginTop: '1em',
-                            marginBottom: '1.2em',
+                            marginBottom: matchesSM ? '2.4em' : '1.2em',
                             width: '20em',
                           }}
                         />
