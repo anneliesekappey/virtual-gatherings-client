@@ -1,17 +1,38 @@
 import React from 'react'
 import { Button } from '@mui/material'
-import { Wrapper } from './CartItem.Styles.js'
+// import { Wrapper } from './CartItem.Styles.js'
+import { Grid } from '@mui/material'
+import { useMediaQuery } from '@mui/material'
+import { Typography } from '@mui/material'
 
 const CartItem = ({ item, addToCart, removeFromCart }) => {
+  const matchesSM = useMediaQuery('(max-width:600px)')
+  const matchesLG = useMediaQuery('(max-width:1200px)')
+
   return (
-    <Wrapper>
-      <div>
-        <h3>{item.title}</h3>
-        <div className="information">
-          <p>Price: ${item.price}</p>
-          <p>Total: ${(item.amount * item.price).toFixed(2)}</p>
-        </div>
-        <div className="buttons">
+    <Grid container direction="row" backgroundColor="#FAF9F6">
+      <Grid
+        item
+        container
+        direction={matchesSM ? 'row' : 'column'}
+        justifyContent={matchesSM ? 'center' : 'left'}
+        sx={{
+          padding: matchesSM ? 0 : 20,
+          marginBottom: matchesSM ? '2em' : matchesLG ? '4em' : 0,
+          marginTop: matchesSM ? '1em' : matchesLG ? '4em' : 0,
+        }}
+        sm={6}
+      >
+        <Grid item container direction={matchesSM ? 'column' : 'row'}>
+          <Typography variant="h6">{item.title}</Typography>
+          <div className="information">
+            <Typography variant="subtitle1">Unit: ${item.price}</Typography>
+            <Typography variant="subtitle1">
+              Total: ${item.amount * item.price}
+            </Typography>
+          </div>
+        </Grid>
+        <Grid container direction={'row'}>
           <Button
             size="small"
             disableElevation
@@ -20,7 +41,12 @@ const CartItem = ({ item, addToCart, removeFromCart }) => {
           >
             -
           </Button>
-          <p>{item.amount}</p>
+          <Typography
+            variant="subtitle2"
+            sx={{ marginRight: '0.5em', marginLeft: '0.5em' }}
+          >
+            {item.amount}
+          </Typography>
           <Button
             size="small"
             disableElevation
@@ -29,10 +55,10 @@ const CartItem = ({ item, addToCart, removeFromCart }) => {
           >
             +
           </Button>
-        </div>
-      </div>
-      {/* <img src={item.image} alt={item.title} /> */}
-    </Wrapper>
+        </Grid>
+        {/* <img src={item.image} alt={item.title} /> */}
+      </Grid>
+    </Grid>
   )
 }
 

@@ -24,8 +24,9 @@ const Services = () => {
             <Typography
               variant="h3"
               sx={{
-                boxShadow:
-                  '#7A9E9F 1px 1px 4px 0px inset, #B8D8D8 1px 1px 4px 0px inset',
+                boxShadow: matchesSM
+                  ? 'none'
+                  : '#7A9E9F 1px 1px 4px 0px inset, #B8D8D8 1px 1px 4px 0px inset',
                 padding: '0.5em',
                 borderRadius: '0.3em',
               }}
@@ -35,28 +36,37 @@ const Services = () => {
           </Grid>
         </Grid>
         <Grid item>
-          <Grid container justifyContent={'center'} sx={{ marginTop: '1.5em' }}>
-            <img src={HatCute} alt="" width={693} height={360} />
+          <Grid
+            container
+            justifyContent={'center'}
+            sx={{ marginTop: matchesSM ? '0.5em' : '1.5em' }}
+          >
+            <img
+              src={HatCute}
+              alt=""
+              width={matchesSM ? 519 : 693}
+              height={matchesSM ? 270 : 360}
+            />
           </Grid>
         </Grid>
         <Grid item>
           <Grid
             container
             justifyContent={'center'}
-            sx={{ marginTop: '2em' }}
+            sx={{ marginTop: matchesSM ? '0.6em' : '2em' }}
             //   alignItems={'center'}
           >
             <Card
               sx={{
                 backgroundColor: '#E8E8E8',
-                boxShadow: 5,
-                borderRadius: 11,
+                boxShadow: matchesSM ? 2 : 5,
+                borderRadius: matchesSM ? 0 : 11,
                 paddingTop: '0.1em',
-                paddingRight: '2em',
-                paddingLeft: '2em',
-                paddingBottom: '1.3em',
-                height: '15rem',
-                width: '77%',
+                paddingRight: matchesSM ? '0.5em' : '2em',
+                paddingLeft: matchesSM ? '0.5em' : '2em',
+                paddingBottom: matchesSM ? '0.5em' : '1.3em',
+                height: matchesSM ? '21rem' : '15rem',
+                width: matchesSM ? 'auto' : '77%',
               }}
             >
               <CardContent>
@@ -136,14 +146,14 @@ const Services = () => {
             <Card
               sx={{
                 backgroundColor: '#E8E8E8',
-                boxShadow: 5,
-                borderRadius: 11,
+                boxShadow: matchesSM ? 2 : 5,
+                borderRadius: matchesSM ? 0 : 11,
                 paddingTop: '0.1em',
-                paddingRight: '2em',
-                paddingLeft: '2em',
-                paddingBottom: '1.3em',
-                height: '13rem',
-                width: '77%',
+                paddingRight: matchesSM ? '0.5em' : '2em',
+                paddingLeft: matchesSM ? '0.5em' : '2em',
+                paddingBottom: matchesSM ? '0.5em' : '1.3em',
+                height: matchesSM ? '17rem' : '13rem',
+                width: matchesSM ? 'auto' : '77%',
               }}
             >
               <CardContent>
@@ -216,14 +226,14 @@ const Services = () => {
             <Card
               sx={{
                 backgroundColor: '#E8E8E8',
-                boxShadow: 5,
-                borderRadius: 11,
+                boxShadow: matchesSM ? 2 : 5,
+                borderRadius: matchesSM ? 0 : 11,
                 paddingTop: '0.1em',
-                paddingRight: '2em',
-                paddingLeft: '2em',
-                paddingBottom: '1.3em',
-                height: '15rem',
-                width: '77%',
+                paddingRight: matchesSM ? '0.5em' : '2em',
+                paddingLeft: matchesSM ? '0.5em' : '2em',
+                paddingBottom: matchesSM ? '0.5em' : '1.3em',
+                height: matchesSM ? '19rem' : '15rem',
+                width: matchesSM ? 'auto' : '77%',
               }}
             >
               <CardContent>
@@ -302,14 +312,14 @@ const Services = () => {
             <Card
               sx={{
                 backgroundColor: '#E8E8E8',
-                boxShadow: 5,
-                borderRadius: 11,
+                boxShadow: matchesSM ? 2 : 5,
+                borderRadius: matchesSM ? 0 : 11,
                 paddingTop: '0.1em',
-                paddingRight: '2em',
-                paddingLeft: '2em',
-                paddingBottom: '1.3em',
-                height: '15rem',
-                width: '77%',
+                paddingRight: matchesSM ? '0.5em' : '2em',
+                paddingLeft: matchesSM ? '0.5em' : '2em',
+                paddingBottom: matchesSM ? '0.5em' : '1.3em',
+                height: matchesSM ? '21rem' : '15rem',
+                width: matchesSM ? 'auto' : '77%',
               }}
             >
               <CardContent>
@@ -389,14 +399,14 @@ const Services = () => {
             <Card
               sx={{
                 backgroundColor: '#E8E8E8',
-                boxShadow: 5,
-                borderRadius: 11,
+                boxShadow: matchesSM ? 2 : 5,
+                borderRadius: matchesSM ? 0 : 11,
                 paddingTop: '0.1em',
-                paddingRight: '2em',
-                paddingLeft: '2em',
-                paddingBottom: '1.3em',
-                height: '15rem',
-                width: '77%',
+                paddingRight: matchesSM ? '0.5em' : '2em',
+                paddingLeft: matchesSM ? '0.5em' : '2em',
+                paddingBottom: matchesSM ? '0.5em' : '1.3em',
+                height: matchesSM ? '19rem' : '15rem',
+                width: matchesSM ? 'auto' : '77%',
               }}
             >
               <CardContent>
@@ -475,14 +485,14 @@ const Services = () => {
             <Card
               sx={{
                 backgroundColor: '#E8E8E8',
-                boxShadow: 5,
-                borderRadius: 11,
+                boxShadow: matchesSM ? 2 : 5,
+                borderRadius: matchesSM ? 0 : 11,
                 paddingTop: '0.1em',
-                paddingRight: '2em',
-                paddingLeft: '2em',
-                paddingBottom: '1.3em',
-                height: '15rem',
-                width: '77%',
+                paddingRight: matchesSM ? '0.5em' : '2em',
+                paddingLeft: matchesSM ? '0.5em' : '2em',
+                paddingBottom: matchesSM ? '0.5em' : '1.3em',
+                height: matchesSM ? '21.5rem' : '15rem',
+                width: matchesSM ? 'auto' : '77%',
               }}
             >
               <CardContent>

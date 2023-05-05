@@ -5,17 +5,47 @@ import { Card } from '@mui/material'
 import { CardContent } from '@mui/material'
 import { Typography } from '@mui/material'
 import { Grid } from '@mui/material'
+import TuesWedsFriSat from '../../images/sessions/TuesWedsFriSat.jpeg'
+import TwoDays from '../../images/sessions/TwoDays.jpeg'
+import Tuesday from '../../images/sessions/Tuesday.jpeg'
+import Wednesday from '../../images/sessions/Wednesday.jpeg'
 import Friday from '../../images/sessions/Friday.jpeg'
+import Saturday from '../../images/sessions/Saturday.jpeg'
 import FourSuperSaturdays from '../../images/sessions/FourSuperSaturdays.jpeg'
+import Twelve from '../../images/sessions/Twelve.jpeg'
 
 const images = [
   {
-    src: Friday,
+    src: TuesWedsFriSat,
     id: '6450d17923310d183fb701b1',
   },
   {
-    src: FourSuperSaturdays,
+    src: TwoDays,
     id: '6450d19623310d183fb701b3',
+  },
+  {
+    src: Tuesday,
+    id: '6450d1c823310d183fb701b5',
+  },
+  {
+    src: Wednesday,
+    id: '645265c48f3dbfcfa859156b',
+  },
+  {
+    src: Friday,
+    id: '6454f5c3c27f89b1408c8982',
+  },
+  {
+    src: Saturday,
+    id: '6454f615c27f89b1408c8983',
+  },
+  {
+    src: FourSuperSaturdays,
+    id: '6454f6afc27f89b1408c8984',
+  },
+  {
+    src: Twelve,
+    id: '6454f75bc27f89b1408c8985',
   },
 ]
 
