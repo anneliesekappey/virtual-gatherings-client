@@ -48,11 +48,11 @@ const ShoppingCart = () => {
 
   const handleAddToCart = (clickedItem) => {
     setCartItems((prev) => {
-      const isItemInCart = prev.find((item) => item.id === clickedItem.id)
+      const isItemInCart = prev.find((item) => item._id === clickedItem._id)
 
       if (isItemInCart) {
         return prev.map((item) =>
-          item.id === clickedItem.id
+          item._id === clickedItem._id
             ? { ...item, amount: item.amount + 1 }
             : item
         )
@@ -65,7 +65,7 @@ const ShoppingCart = () => {
   const handleRemoveFromCart = (id) => {
     setCartItems((prev) =>
       prev.reduce((acc, item) => {
-        if (item.id === id) {
+        if (item._id === id) {
           if (item.amount === 1) return acc
           return [...acc, { ...item, amount: item.amount - 1 }]
         } else {
@@ -99,7 +99,7 @@ const ShoppingCart = () => {
 
       <Grid container spacing={3}>
         {sessions?.map((item) => (
-          <Grid item key={item.id} xs={12} sm={4}>
+          <Grid item key={item._id} xs={12} sm={4}>
             <div onClick={() => handleItemClick(item)}>
               <Item
                 item={item}

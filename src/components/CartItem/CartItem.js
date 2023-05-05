@@ -16,7 +16,7 @@ const CartItem = ({ item, addToCart, removeFromCart }) => {
             size="small"
             disableElevation
             variant="contained"
-            onClick={() => removeFromCart(item.id)}
+            onClick={() => removeFromCart(item._id)}
           >
             -
           </Button>
@@ -31,7 +31,7 @@ const CartItem = ({ item, addToCart, removeFromCart }) => {
           </Button>
         </div>
       </div>
-      <img src={item.image} alt={item.title} />
+      {/* <img src={item.image} alt={item.title} /> */}
     </Wrapper>
   )
 }

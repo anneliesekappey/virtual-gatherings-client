@@ -74,6 +74,10 @@ const Header = (props) => {
       name: 'Our Friends',
       link: '/friends-working-with-patients-living-with-dementia-and-alzheimers',
     },
+    {
+      name: 'Careers',
+      link: '/work-with-virtual-gatherings',
+    },
   ]
 
   useEffect(() => {
@@ -85,51 +89,56 @@ const Header = (props) => {
         break
       case '/about-virtual-gatherings':
         if (props.value !== 1) {
-          props.setValue(1)
-          props.setSelectedIndex(0)
+          matches ? props.setValue(1) : props.setSelectedIndex(0)
         }
         break
       case '/learn-more':
-        if (props.value !== 1) {
-          props.setValue(1)
+        if (matches ? props.value !== 2 : props.value !== 1) {
+          matches ? props.setValue(2) : props.setValue(1)
           props.setSelectedIndex(1)
         }
         break
       case '/friends-working-with-patients-living-with-dementia-and-alzheimers':
-        if (props.value !== 1) {
-          props.setValue(1)
+        if (matches ? props.value !== 3 : props.value !== 1) {
+          matches ? props.setValue(3) : props.setValue(1)
           props.setSelectedIndex(2)
         }
         break
+      case '/work-with-virtual-gatherings':
+        if (matches ? props.value !== 4 : props.value !== 1) {
+          matches ? props.setValue(4) : props.setValue(1)
+          props.setSelectedIndex(3)
+        }
+        break
       case '/online-meetings':
-        if (props.value !== 2) {
-          props.setValue(2)
+        if (matches ? props.value !== 5 : props.value !== 2) {
+          matches ? props.setValue(5) : props.setValue(2)
         }
         break
       case '/games-information-resources-for-patients-living-with-dementia-and-alzheimers':
-        if (props.value !== 3) {
-          props.setValue(3)
+        if (matches ? props.value !== 6 : props.value !== 3) {
+          matches ? props.setValue(6) : props.setValue(3)
         }
         break
       case '/contact-virtual-gatherings':
-        if (props.value !== 4) {
-          props.setValue(4)
+        if (matches ? props.value !== 7 : props.value !== 4) {
+          matches ? props.setValue(7) : props.setValue(4)
         }
         break
       case '/signup':
-        if (props.value !== 5) {
-          props.setValue(5)
+        if (matches ? props.value !== 8 : props.value !== 5) {
+          matches ? props.setValue(8) : props.setValue(5)
         }
         break
       case '/login':
-        if (props.value !== 6) {
-          props.setValue(6)
+        if (matches ? props.value !== 9 : props.value !== 6) {
+          matches ? props.setValue(9) : props.setValue(6)
         }
         break
       default:
         break
     }
-  }, [props.value, aboutMenuOptions, props.selectedIndex, props])
+  }, [matches, props.value, aboutMenuOptions, props.selectedIndex, props])
 
   const tabs = (
     <React.Fragment>
@@ -391,8 +400,30 @@ const Header = (props) => {
             divider
             ListItemButton
             component={Link}
-            to="/online-meetings"
+            to="/work-with-virtual-gaherings"
             selected={props.value === 4}
+          >
+            <ListItemText
+              sx={{
+                color: '#4F6367',
+                fontFamily: 'Cardo',
+                fontVariant: 'small-caps',
+              }}
+              disableTypography
+            >
+              Careers
+            </ListItemText>
+          </ListItemButton>
+          <ListItemButton
+            onClick={() => {
+              setOpenDrawer(false)
+              props.setValue(5)
+            }}
+            divider
+            ListItemButton
+            component={Link}
+            to="/online-meetings"
+            selected={props.value === 5}
           >
             <ListItemText
               sx={{
@@ -408,13 +439,13 @@ const Header = (props) => {
           <ListItemButton
             onClick={() => {
               setOpenDrawer(false)
-              props.setValue(5)
+              props.setValue(6)
             }}
             divider
             ListItemButton
             component={Link}
             to="/games-information-resources-for-patients-living-with-dementia-and-alzheimers"
-            selected={props.value === 5}
+            selected={props.value === 6}
           >
             <ListItemText
               sx={{
@@ -430,13 +461,13 @@ const Header = (props) => {
           <ListItemButton
             onClick={() => {
               setOpenDrawer(false)
-              props.setValue(6)
+              props.setValue(7)
             }}
             divider
             ListItemButton
             component={Link}
             to="/contact-virtual-gatherings"
-            selected={props.value === 6}
+            selected={props.value === 7}
           >
             <ListItemText
               sx={{
@@ -452,13 +483,13 @@ const Header = (props) => {
           <ListItemButton
             onClick={() => {
               setOpenDrawer(false)
-              props.setValue(7)
+              props.setValue(8)
             }}
             divider
             ListItemButton
             component={Link}
             to="/signup"
-            selected={props.value === 7}
+            selected={props.value === 8}
           >
             <ListItemText
               sx={{
@@ -474,13 +505,13 @@ const Header = (props) => {
           <ListItemButton
             onClick={() => {
               setOpenDrawer(false)
-              props.setValue(8)
+              props.setValue(9)
             }}
             divider
             ListItemButton
             component={Link}
             to="/login"
-            selected={props.value === 8}
+            selected={props.value === 9}
           >
             <ListItemText
               sx={{

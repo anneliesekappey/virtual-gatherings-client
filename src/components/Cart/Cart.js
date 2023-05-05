@@ -13,7 +13,7 @@ const Cart = ({ cartItems, addToCart, removeFromCart }) => {
       {cartItems.length === 0 ? <p>No items in cart.</p> : null}
       {cartItems.map((item) => (
         <CartItem
-          key={item.id}
+          key={item._id}
           item={item}
           addToCart={addToCart}
           removeFromCart={removeFromCart}
