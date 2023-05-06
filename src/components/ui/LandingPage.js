@@ -73,7 +73,7 @@ const LandingPage = () => {
               Personalized Online Social Meetings
             </Typography>
             <Typography
-              variant="h7"
+              variant={matchesSM ? 'h7' : 'subtitle1'}
               align={matchesSM ? 'left' : 'center'}
               color="#EEF5D8"
               sx={{
