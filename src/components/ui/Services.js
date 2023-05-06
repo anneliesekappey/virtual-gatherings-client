@@ -44,8 +44,8 @@ const Services = () => {
             <img
               src={HatCute}
               alt=""
-              width={matchesSM ? 519 : 693}
-              height={matchesSM ? 270 : 360}
+              width={matchesSM ? '86%' : 693}
+              height={matchesSM ? '86%' : 360}
             />
           </Grid>
         </Grid>
@@ -53,7 +53,7 @@ const Services = () => {
           <Grid
             container
             justifyContent={'center'}
-            sx={{ marginTop: matchesSM ? '0.6em' : '2em' }}
+            sx={{ marginTop: matchesSM ? '0.8em' : '2em' }}
             //   alignItems={'center'}
           >
             <Card
@@ -65,7 +65,7 @@ const Services = () => {
                 paddingRight: matchesSM ? '0.5em' : '2em',
                 paddingLeft: matchesSM ? '0.5em' : '2em',
                 paddingBottom: matchesSM ? '0.5em' : '1.3em',
-                height: matchesSM ? '21rem' : '15rem',
+                height: matchesSM ? '26rem' : '15rem',
                 width: matchesSM ? 'auto' : '77%',
               }}
             >
@@ -232,7 +232,7 @@ const Services = () => {
                 paddingRight: matchesSM ? '0.5em' : '2em',
                 paddingLeft: matchesSM ? '0.5em' : '2em',
                 paddingBottom: matchesSM ? '0.5em' : '1.3em',
-                height: matchesSM ? '19rem' : '15rem',
+                height: matchesSM ? '24rem' : '15rem',
                 width: matchesSM ? 'auto' : '77%',
               }}
             >
@@ -318,7 +318,7 @@ const Services = () => {
                 paddingRight: matchesSM ? '0.5em' : '2em',
                 paddingLeft: matchesSM ? '0.5em' : '2em',
                 paddingBottom: matchesSM ? '0.5em' : '1.3em',
-                height: matchesSM ? '21rem' : '15rem',
+                height: matchesSM ? '26rem' : '15rem',
                 width: matchesSM ? 'auto' : '77%',
               }}
             >
@@ -405,7 +405,7 @@ const Services = () => {
                 paddingRight: matchesSM ? '0.5em' : '2em',
                 paddingLeft: matchesSM ? '0.5em' : '2em',
                 paddingBottom: matchesSM ? '0.5em' : '1.3em',
-                height: matchesSM ? '19rem' : '15rem',
+                height: matchesSM ? '22rem' : '15rem',
                 width: matchesSM ? 'auto' : '77%',
               }}
             >
@@ -491,7 +491,7 @@ const Services = () => {
                 paddingRight: matchesSM ? '0.5em' : '2em',
                 paddingLeft: matchesSM ? '0.5em' : '2em',
                 paddingBottom: matchesSM ? '0.5em' : '1.3em',
-                height: matchesSM ? '21.5rem' : '15rem',
+                height: matchesSM ? '26.5rem' : '15rem',
                 width: matchesSM ? 'auto' : '77%',
               }}
             >

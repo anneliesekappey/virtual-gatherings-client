@@ -19,8 +19,9 @@ const LandingPage = () => {
       container
       direction="column"
       backgroundColor="#FAF9F6"
-      width={matchesXS ? 'auto' : matchesSM ? 'auto' : undefined}
-      padding={matchesSM ? '0.7em' : '2em'}
+      width={matchesXS ? '80%' : matchesSM ? 'auto' : undefined}
+      padding={matchesSM ? 0 : '2em'}
+      paddingTop={matchesSM ? '1em' : '2em'}
     >
       <Grid item>
         {/*-----Top-----*/}
@@ -34,7 +35,7 @@ const LandingPage = () => {
           <Grid
             sm
             item
-            width={matchesSM ? '80%' : undefined}
+            width={matchesSM ? '70%' : undefined}
             sx={{
               minWidth: matchesXS
                 ? undefined
@@ -53,14 +54,14 @@ const LandingPage = () => {
                 fontVariant: 'all-petite-caps',
                 color: '#4F6367',
                 lineHeight: 0.8,
-                maxWidth: matchesSM ? '70%' : undefined,
+                maxWidth: matchesSM ? '65%' : undefined,
               }}
             >
               Virtual Gatherings
             </Typography>
             <Typography
-              variant={matchesSM ? 'h5' : 'h4'}
-              align={matchesSM ? 'justified' : 'center'}
+              variant={matchesSM ? 'h6' : 'h4'}
+              align={matchesSM ? 'left' : 'center'}
               sx={{
                 fontFamily: 'Cardo',
                 fontVariant: 'small-caps',
@@ -72,7 +73,7 @@ const LandingPage = () => {
               Personalized Online Social Meetings
             </Typography>
             <Typography
-              variant="h6"
+              variant="h7"
               align={matchesSM ? 'left' : 'center'}
               color="#EEF5D8"
               sx={{
@@ -146,8 +147,8 @@ const LandingPage = () => {
           >
             <img
               src={MainImage}
-              height={matchesSM ? '98%' : undefined}
-              width={matchesSM ? '98%' : undefined}
+              height={matchesSM ? '88%' : undefined}
+              width={matchesSM ? '88%' : undefined}
               alt="Happy Elderly People"
             />
           </Grid>
@@ -440,7 +441,7 @@ const LandingPage = () => {
             marginTop: matchesSM ? '2em' : '5em',
             marginBottom: matchesSM ? '2em' : '5em',
             backgroundImage: matchesSM
-              ? 'linear-gradient(to bottom right, #FE5F55, #FAF9F6)'
+              ? 'linear-gradient(to top left, #FE5F55, #FAF9F6)'
               : 'linear-gradient(to bottom, #FE5F55, #FAF9F6)',
             boxShadow: 3,
             borderRadius: matchesSM ? 0 : 3,
@@ -448,7 +449,7 @@ const LandingPage = () => {
             paddingRight: matchesSM ? 0 : '2em',
             paddingLeft: matchesSM ? 0 : '2em',
             paddingBottom: matchesSM ? '0.5em' : '1.3em',
-            width: matchesSM ? 470 : '100%',
+            width: matchesSM ? 460 : '100%',
           }}
           direction={matchesSM ? 'column' : 'row'}
           textAlign={matchesSM ? 'left' : 'inherit'}

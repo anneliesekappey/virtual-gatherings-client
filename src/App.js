@@ -3,8 +3,8 @@ import { ThemeProvider } from '@mui/material'
 import { Routes, Route } from 'react-router-dom'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
-import { CareersPage } from './pages/CareersPage'
-import { FriendsOfVirtualGatherings } from './pages/FriendsOfVirtualGatheringsPage'
+import CareersPage from './pages/CareersPage'
+import FriendsOfVirtualGatherings from './pages/FriendsOfVirtualGatherings'
 import { ResourcesPage } from './pages/ResourcesPage'
 import Header from './components/ui/Header'
 import Theme from './components/ui/Theme'
@@ -15,7 +15,6 @@ import Services from './components/ui/Services'
 import LearnMore from './components/ui/LearnMore'
 import Contact from './components/ui/Contact'
 import ShoppingCart from './pages/ShoppingCart'
-// import BookASession from './pages/BookASession'
 
 const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -34,10 +33,6 @@ const App = () => {
         <Route path="/signup" element=<Signup /> />
         <Route path="/login" element=<Login /> />
         <Route path="/book-a-session" element=<ShoppingCart /> />
-        {/* <Route
-          path="/purchase-a-session-or-a-bundle"
-          element=<ShoppingCart />
-        /> */}
         <Route path="/about-virtual-gatherings" element=<AboutUs /> />
         <Route path="/learn-more" element=<LearnMore /> />
         <Route path="/online-meetings" element=<Services /> />
