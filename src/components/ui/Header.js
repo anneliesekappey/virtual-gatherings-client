@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { AppBar, Typography } from '@mui/material'
+import { AppBar } from '@mui/material'
 import { Toolbar } from '@mui/material'
 import { useScrollTrigger } from '@mui/material'
 import { Tabs } from '@mui/material'
@@ -17,6 +17,8 @@ import { List } from '@mui/material'
 import { ListItemText } from '@mui/material'
 import { ListItemButton } from '@mui/material'
 
+import LogoNoWords from '../../images/icons/LogoNoWords.png'
+
 function ElevationScroll(props) {
   const { children } = props
   const trigger = useScrollTrigger({
@@ -30,6 +32,7 @@ function ElevationScroll(props) {
 }
 
 const Header = (props) => {
+  const matchesSM = useMediaQuery('(max-width:600px)')
   const theme = useTheme()
   const iOS =
     typeof navigator !== 'undefined' &&
@@ -538,11 +541,14 @@ const Header = (props) => {
   return (
     <ElevationScroll>
       <AppBar position="sticky">
-        <Toolbar sx={{ margin: 1.5 }}>
+        <Toolbar sx={{ margin: matchesSM ? 1 : 2.5 }}>
           <Button component={Link} to="/">
-            <Typography variant="h6" color="secondary">
-              Virtual Gatherings
-            </Typography>
+            <img
+              src={LogoNoWords}
+              height={matchesSM ? '47.5' : '87'}
+              width={matchesSM ? '86' : '156'}
+              alt="Virtual Gatherings Logo"
+            />
           </Button>
           {matches ? drawer : tabs}
         </Toolbar>

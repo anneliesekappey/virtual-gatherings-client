@@ -16,6 +16,7 @@ import { Hidden } from '@mui/material'
 
 const AboutUs = () => {
   const matchesSM = useMediaQuery('(max-width:600px)')
+  const matchesMD = useMediaQuery('(max-width:900px)')
 
   return (
     <div>
@@ -449,7 +450,10 @@ const AboutUs = () => {
             </Card>
           </Grid>
         </Grid>
-        <Grid item>
+        <Grid
+          item
+          sx={{ marginBottom: matchesMD ? 8 : matchesSM ? 10 : undefined }}
+        >
           <Grid
             container
             sx={{ marginTop: '5em' }}
@@ -550,111 +554,116 @@ const AboutUs = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item>
-        {/*------Information Block -----*/}
-        <Grid
-          container
-          alignItems={'center'}
-          justifyContent={matchesSM ? 'space-around' : 'space-between'}
-          sx={{
-            height: '23em',
-            marginTop: '5em',
-            marginBottom: '5em',
-            backgroundImage: matchesSM
-              ? 'linear-gradient(to right, #FE5F55, #FAF9F6)'
-              : 'linear-gradient(to bottom, #FE5F55, #FAF9F6)',
-            boxShadow: 3,
-            borderRadius: matchesSM ? 0 : 3,
-            paddingTop: matchesSM ? '0.5em' : '1em',
-            paddingRight: matchesSM ? 0 : '2em',
-            paddingLeft: matchesSM ? 0 : '2em',
-            paddingBottom: matchesSM ? '0.5em' : '1.3em',
-            width: '100%',
-          }}
-          direction={matchesSM ? 'column' : 'row'}
-          textAlign={matchesSM ? 'left' : 'inherit'}
-        >
+      <Hidden mdDown>
+        <Grid item>
+          {/*------Information Block -----*/}
           <Grid
-            item
-            sx={{ marginLeft: matchesSM ? '1em' : '3em', textAlign: 'left' }}
+            container
+            alignItems={'center'}
+            justifyContent={matchesSM ? 'space-around' : 'space-between'}
+            sx={{
+              height: '23em',
+              marginTop: '5em',
+              marginBottom: '5em',
+              backgroundImage: matchesSM
+                ? 'linear-gradient(to right, #FE5F55, #FAF9F6)'
+                : 'linear-gradient(to bottom, #FE5F55, #FAF9F6)',
+              boxShadow: 3,
+              borderRadius: matchesSM ? 0 : 3,
+              paddingTop: matchesSM ? '0.5em' : '1em',
+              paddingRight: matchesSM ? 0 : '2em',
+              paddingLeft: matchesSM ? 0 : '2em',
+              paddingBottom: matchesSM ? '0.5em' : '1.3em',
+              width: '100%',
+            }}
+            direction={matchesSM ? 'column' : 'row'}
+            textAlign={matchesSM ? 'left' : 'inherit'}
           >
             <Grid
-              container
-              direction="column"
-              textAlign={matchesSM ? 'left' : 'inherit'}
+              item
+              sx={{ marginLeft: matchesSM ? '1em' : '3em', textAlign: 'left' }}
             >
-              <Typography variant="h4" sx={{ color: 'white' }}>
-                About Us
-              </Typography>
-              <Typography variant="subtitle1" sx={{ color: 'white' }}>
-                Get to know us better
-              </Typography>
               <Grid
                 container
-                justifyContent={matchesSM ? 'left' : 'space-between'}
+                direction="column"
+                textAlign={matchesSM ? 'left' : 'inherit'}
               >
-                <Button
-                  variant="outlined"
-                  component={Link}
-                  to="/about-virtual-gatherings"
-                  sx={{
-                    borderColor: '#EEF5D8',
-                    color: 'white',
-                    borderWidth: 2,
-                    textTransform: 'none',
-                    fontFamily: 'Cardo',
-                    fontWeight: 'bold',
-                    fontSize: '0.8rem',
-                    height: 35,
-                    width: matchesSM ? 'auto' : 133,
-                    padding: 1,
-                  }}
+                <Typography variant="h4" sx={{ color: 'white' }}>
+                  About Us
+                </Typography>
+                <Typography variant="subtitle1" sx={{ color: 'white' }}>
+                  Get to know us better
+                </Typography>
+                <Grid
+                  container
+                  justifyContent={matchesSM ? 'left' : 'space-between'}
                 >
-                  Read More
-                </Button>
+                  <Button
+                    variant="outlined"
+                    component={Link}
+                    to="/about-virtual-gatherings"
+                    sx={{
+                      borderColor: '#EEF5D8',
+                      color: 'white',
+                      borderWidth: 2,
+                      textTransform: 'none',
+                      fontFamily: 'Cardo',
+                      fontWeight: 'bold',
+                      fontSize: '0.8rem',
+                      height: 35,
+                      width: matchesSM ? 'auto' : 133,
+                      padding: 1,
+                    }}
+                  >
+                    Read More
+                  </Button>
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid
-            item
-            sx={{ marginRight: matchesSM ? '1em' : '3em', textAlign: 'right' }}
-          >
             <Grid
-              container
-              direction="column"
-              textAlign={matchesSM ? 'left' : 'inherit'}
+              item
+              sx={{
+                marginRight: matchesSM ? '1em' : '3em',
+                textAlign: 'right',
+              }}
             >
-              <Typography variant="h4" sx={{ color: 'white' }}>
-                Contact Us
-              </Typography>
-              <Typography variant="subtitle1" sx={{ color: 'white' }}>
-                Talk to us
-              </Typography>
-              <Grid container justifyContent={matchesSM ? 'left' : 'right'}>
-                <Button
-                  variant="outlined"
-                  component={Link}
-                  to="/contact-virtual-gatherings"
-                  sx={{
-                    borderColor: '#EEF5D8',
-                    color: 'white',
-                    borderWidth: 2,
-                    textTransform: 'none',
-                    fontFamily: 'Cardo',
-                    fontWeight: 'bold',
-                    fontSize: '0.8rem',
-                    height: 35,
-                    width: matchesSM ? 'auto' : 133,
-                    padding: 1,
-                  }}
-                >
-                  Read More
-                </Button>
+              <Grid
+                container
+                direction="column"
+                textAlign={matchesSM ? 'left' : 'inherit'}
+              >
+                <Typography variant="h4" sx={{ color: 'white' }}>
+                  Contact Us
+                </Typography>
+                <Typography variant="subtitle1" sx={{ color: 'white' }}>
+                  Talk to us
+                </Typography>
+                <Grid container justifyContent={matchesSM ? 'left' : 'right'}>
+                  <Button
+                    variant="outlined"
+                    component={Link}
+                    to="/contact-virtual-gatherings"
+                    sx={{
+                      borderColor: '#EEF5D8',
+                      color: 'white',
+                      borderWidth: 2,
+                      textTransform: 'none',
+                      fontFamily: 'Cardo',
+                      fontWeight: 'bold',
+                      fontSize: '0.8rem',
+                      height: 35,
+                      width: matchesSM ? 'auto' : 133,
+                      padding: 1,
+                    }}
+                  >
+                    Read More
+                  </Button>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      </Hidden>
     </div>
   )
 }

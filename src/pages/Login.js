@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Api from '../utils/api.utils'
-import { Grid } from '@mui/material'
+import { Grid, LinearProgress } from '@mui/material'
 import { TextField } from '@mui/material'
 import { Typography } from '@mui/material'
 import { Button } from '@mui/material'
 import { useMediaQuery } from '@mui/material'
 import { Card } from '@mui/material'
 import { CardContent } from '@mui/material'
+import { Box } from '@mui/material'
 
 const Login = () => {
   const matchesSM = useMediaQuery('(max-width:600px)')
@@ -16,6 +17,7 @@ const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [isLoading, setIsLoading] = useState(true)
 
   const sendToMeetings = useNavigate()
   const userNotFound = useNavigate()
@@ -29,6 +31,11 @@ const Login = () => {
 
     try {
       await Api.login(newLogin)
+      setIsLoading(false)
+      if (isLoading) return
+      ;<Box sx={{ width: '100%' }}>
+        <LinearProgress />
+      </Box>
       sendToMeetings('/book-a-session')
     } catch (error) {
       setError(error)

@@ -206,7 +206,7 @@ const Signup = () => {
           >
             Already have an account?
             <Link to="/login" style={{ color: 'inherit' }}>
-              Log In
+              {''} Log In
             </Link>
             {error && <p> {error} </p>}
           </span>

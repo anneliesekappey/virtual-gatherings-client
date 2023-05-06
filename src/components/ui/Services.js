@@ -573,10 +573,10 @@ const Services = () => {
             marginTop: '5em',
             marginBottom: '5em',
             backgroundImage: matchesSM
-              ? 'linear-gradient(to right, #FE5F55, #FAF9F6)'
+              ? 'linear-gradient(to bottom right, #FE5F55, #FAF9F6)'
               : 'linear-gradient(to bottom, #FE5F55, #FAF9F6)',
             boxShadow: 3,
-            borderRadius: 3,
+            borderRadius: matchesSM ? 0 : 3,
             paddingTop: matchesSM ? '0.5em' : '1em',
             paddingRight: matchesSM ? 0 : '2em',
             paddingLeft: matchesSM ? 0 : '2em',

@@ -17,13 +17,14 @@ const CartItem = ({ item, addToCart, removeFromCart }) => {
         direction={matchesSM ? 'row' : 'column'}
         justifyContent={matchesSM ? 'center' : 'left'}
         sx={{
-          padding: matchesSM ? 0 : 20,
-          marginBottom: matchesSM ? '2em' : matchesLG ? '4em' : 0,
-          marginTop: matchesSM ? '1em' : matchesLG ? '4em' : 0,
+          padding: matchesSM ? 0 : 6,
+          marginBottom: matchesSM ? '2em' : matchesLG ? '2em' : 0,
+          marginTop: matchesSM ? '1em' : matchesLG ? '2em' : 0,
         }}
         sm={6}
+        lg={9}
       >
-        <Grid item container direction={matchesSM ? 'column' : 'row'}>
+        <Grid item container direction={'column'}>
           <Typography variant="h6">{item.title}</Typography>
           <div className="information">
             <Typography variant="subtitle1">Unit: ${item.price}</Typography>

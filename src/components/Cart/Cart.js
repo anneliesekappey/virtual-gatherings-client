@@ -12,30 +12,44 @@ const Cart = ({ cartItems, addToCart, removeFromCart }) => {
     items.reduce((acc, item) => acc + item.amount * item.price, 0)
 
   return (
-    <Grid container direction="row" backgroundColor="#FAF9F6">
+    <Grid
+      container
+      direction="row"
+      backgroundColor="#FAF9F6"
+      height={'100%'}
+      padding="1em"
+    >
       <Grid
         item
         container
-        direction="column"
-        justifyContent={'center'}
+        direction={matchesSM ? 'column' : 'row'}
+        justifyContent={matchesSM ? 'center' : 'left'}
+        alignItems="flex-start"
         sx={{
-          marginBottom: matchesSM ? '2em' : matchesLG ? '4em' : 0,
-          marginTop: matchesSM ? '1em' : matchesLG ? '4em' : 0,
+          marginBottom: matchesSM ? '13em' : matchesLG ? '2em' : 0,
+          marginTop: matchesSM ? 0 : matchesLG ? '2em' : 0,
         }}
         sm={6}
+        lg={9}
       >
-        <Typography variant="subtitle2" textAlign={'center'}>
-          Your Cart
-        </Typography>
-        {cartItems.length === 0 ? <p>No items in cart.</p> : null}
-        {cartItems.map((item) => (
-          <CartItem
-            key={item._id}
-            item={item}
-            addToCart={addToCart}
-            removeFromCart={removeFromCart}
-          />
-        ))}
+        <Grid container>
+          <Typography variant="h4" textAlign={'center'}>
+            Your Cart
+          </Typography>
+        </Grid>
+        <Grid container>
+          {cartItems.length === 0 ? (
+            <Typography variant="h6">No items in cart.</Typography>
+          ) : null}
+          {cartItems.map((item) => (
+            <CartItem
+              key={item._id}
+              item={item}
+              addToCart={addToCart}
+              removeFromCart={removeFromCart}
+            />
+          ))}
+        </Grid>
         <Typography variant="subtitle2">
           Total: ${calculateTotal(cartItems).toFixed(2)}
         </Typography>

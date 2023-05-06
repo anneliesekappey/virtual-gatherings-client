@@ -135,5 +135,11 @@ export default createTheme({
       lineHeight: '1.3em',
       fontWeight: 100,
     },
+    body: {
+      color: '#868686',
+      fontFamily: 'Montserrat',
+      fontSize: '1.1rem',
+      fontWeight: 100,
+    },
   },
 })

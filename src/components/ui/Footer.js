@@ -16,7 +16,7 @@ const Footer = (props) => {
             height: '200px',
           }}
         >
-          <Grid item margin="3em">
+          <Grid item margin="3em" marginLeft={'10em'}>
             <Grid container direction="column" spacing={2}>
               <Grid
                 component={Link}

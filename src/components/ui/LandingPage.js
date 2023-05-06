@@ -1,57 +1,79 @@
 import React from 'react'
 import { Grid } from '@mui/material'
 import { useMediaQuery } from '@mui/material'
-import mainPicture from '../../images/MainNotMain.jpeg'
 import { Button } from '@mui/material'
 import { Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 import MissionPicture from '../../images/screens/ScreenGroup.png'
 import FoundersNY from '../../images/team/FoundersNYBackground2.jpeg'
 import WomanBack from '../../images/screens/WomanBack.jpeg'
+import MainImage from '../../images/icons/MainImage.png'
 
 const LandingPage = () => {
   const matchesSM = useMediaQuery('(max-width:600px)')
+  const matchesMD = useMediaQuery('(max-width:900px)')
+  const matchesXS = useMediaQuery('(max-width:0px)')
 
   return (
     <Grid
       container
       direction="column"
       backgroundColor="#FAF9F6"
-      width={matchesSM ? 'auto' : undefined}
+      width={matchesXS ? 'auto' : matchesSM ? 'auto' : undefined}
+      padding={matchesSM ? '0.7em' : '2em'}
     >
       <Grid item>
         {/*-----Top-----*/}
         <Grid
           container
-          justifyContent={matchesSM ? 'center' : 'flex-end'}
+          justifyContent={matchesMD ? 'left' : matchesSM ? 'left' : 'flex-end'}
           alignItems="center"
-          direction="row"
+          direction={matchesXS ? 'column' : matchesSM ? 'column' : 'row'}
           sx={{ backgroundColor: 'EEF5D8' }}
         >
           <Grid
             sm
             item
-            width={matchesSM ? 'auto' : undefined}
+            width={matchesSM ? '80%' : undefined}
             sx={{
-              minWidth: matchesSM ? undefined : '21.5em',
+              minWidth: matchesXS
+                ? undefined
+                : matchesSM
+                ? undefined
+                : '21.5em',
               marginLeft: matchesSM ? 0 : '1em',
             }}
           >
             <Typography
-              variant="h4"
-              align="center"
+              variant={matchesSM ? 'h2' : 'h1'}
+              align={matchesSM ? 'left' : 'center'}
+              sx={{
+                fontFamily: 'Montserrat',
+                fontWeight: 'lighter',
+                fontVariant: 'all-petite-caps',
+                color: '#4F6367',
+                lineHeight: 0.8,
+                maxWidth: matchesSM ? '70%' : undefined,
+              }}
+            >
+              Virtual Gatherings
+            </Typography>
+            <Typography
+              variant={matchesSM ? 'h5' : 'h4'}
+              align={matchesSM ? 'justified' : 'center'}
               sx={{
                 fontFamily: 'Cardo',
                 fontVariant: 'small-caps',
                 color: '#FE5F55',
-                lineHeight: 1.6,
+                lineHeight: matchesSM ? 1.5 : 2,
+                marginTop: 3.5,
               }}
             >
               Personalized Online Social Meetings
             </Typography>
             <Typography
               variant="h6"
-              align="center"
+              align={matchesSM ? 'left' : 'center'}
               color="#EEF5D8"
               sx={{
                 fontFamily: 'Montserrat',
@@ -60,11 +82,12 @@ const LandingPage = () => {
               }}
             >
               for those with dementia related memory loss
-              <br />~ music art movement brainteasers languages ~
+              <br />
+              ~music art movement brainteasers languages~
             </Typography>
             <Grid
               container
-              justifyContent={'center'}
+              justifyContent={matchesSM ? 'left' : 'center'}
               sx={{ marginTop: '1.8em' }}
               width={matchesSM ? 'auto' : undefined}
             >
@@ -114,14 +137,19 @@ const LandingPage = () => {
           <Grid
             item
             sx={{
-              maxWidth: '58em',
+              maxWidth: matchesSM ? undefined : '58em',
               minWidth: matchesSM ? undefined : '18em',
               marginTop: '2em',
               marginLeft: matchesSM ? 0 : '4%',
               marginRight: matchesSM ? 0 : '3%',
             }}
           >
-            <img src={mainPicture} alt="Happy Elderly People" />
+            <img
+              src={MainImage}
+              height={matchesSM ? '98%' : undefined}
+              width={matchesSM ? '98%' : undefined}
+              alt="Happy Elderly People"
+            />
           </Grid>
         </Grid>
       </Grid>
@@ -130,41 +158,50 @@ const LandingPage = () => {
         {/*-----Mission Block----*/}
         <Grid
           container
-          direction="row"
-          justifyContent={matchesSM ? 'center' : undefined}
-          padding={matchesSM ? 5 : undefined}
+          direction={matchesSM ? 'column' : 'row'}
+          justifyContent={matchesMD ? 'center' : matchesSM ? 'left' : undefined}
+          alignItems={'center'}
+          padding={matchesSM ? 2.2 : undefined}
           sx={{ marginTop: matchesSM ? '3em' : '8em' }}
+          width={matchesSM ? '75%' : undefined}
         >
-          <Grid item sx={{ marginLeft: matchesSM ? 0 : '3em' }}>
+          <Grid
+            item
+            sx={{ marginLeft: matchesMD ? 0 : matchesSM ? 0 : '4.2em' }}
+          >
             <Typography
-              variant="h4"
+              variant={matchesSM ? 'h5' : 'h4'}
               sx={{
                 fontFamily: 'Cardo',
                 fontVariant: 'small-caps',
                 color: '#4F6367',
                 lineHeight: 1.7,
-                textAlign: matchesSM ? 'center' : undefined,
+                textAlign: matchesSM ? 'left' : undefined,
               }}
             >
               Our Mission
             </Typography>
             <Typography
-              variant="subtitle1"
+              variant={matchesSM ? 'body' : 'subtitle1'}
               sx={{
-                lineHeight: 1.5,
+                lineHeight: matchesSM ? 1.3 : 1.5,
                 marginBottom: '0.6em',
-                textAlign: matchesSM ? 'center' : undefined,
+                textAlign: matchesSM ? 'left' : undefined,
               }}
             >
               For each person to experience authentic joy and connection.
-              <Typography variant="subtitle1">
-                Connection with others whenever they join us - through{' '}
-                <Typography variant="subtitle2">
+              <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
+                {''} Connection with others whenever they join us - through{' '}
+                <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
                   mind, movement and memories.
                 </Typography>
               </Typography>
             </Typography>
-            <Grid container justifyContent={matchesSM ? 'center' : undefined}>
+            <Grid
+              container
+              justifyContent={matchesSM ? 'left' : undefined}
+              sx={{ marginTop: matchesSM ? 2 : undefined }}
+            >
               <Button
                 variant="outlined"
                 component={Link}
@@ -187,14 +224,103 @@ const LandingPage = () => {
           </Grid>
           <Grid
             item
-            sx={{ marginLeft: matchesSM ? 0 : '2em', marginTop: '2em' }}
+            sx={{
+              marginLeft: matchesMD ? 0 : matchesSM ? 0 : '2em',
+              marginTop: '1em',
+            }}
           >
             <img
               src={MissionPicture}
               alt="Seniors having fun together"
-              width={320}
-              height={200}
+              width={matchesSM ? '98%' : 506}
+              height={matchesSM ? '98%' : 317}
             />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        {' '}
+        {/*-----Why You Should Join Block----*/}
+        <Grid
+          container
+          direction={matchesSM ? 'column' : 'row'}
+          justifyContent={matchesMD ? 'center' : matchesSM ? 'left' : 'right'}
+          alignItems={'center'}
+          padding={matchesSM ? 2.2 : undefined}
+          sx={{ marginTop: matchesSM ? '3em' : '8em' }}
+          width={matchesSM ? '75%' : undefined}
+        >
+          <Grid
+            item
+            sx={{
+              marginRight: matchesMD ? 0 : matchesSM ? 0 : '2em',
+              marginTop: '2em',
+            }}
+          >
+            <img
+              src={WomanBack}
+              alt="Woman looking at computer screen"
+              width={matchesSM ? '98%' : 487}
+              height={matchesSM ? '98%' : 364}
+            />
+          </Grid>
+          <Grid item sx={{ marginRight: matchesSM ? 0 : '3em' }}>
+            <Typography
+              variant={matchesSM ? 'h5' : 'h4'}
+              sx={{
+                fontFamily: 'Cardo',
+                fontVariant: 'small-caps',
+                color: '#4F6367',
+                lineHeight: 1.7,
+                textAlign: matchesSM ? 'left' : 'right',
+              }}
+            >
+              Testimonials
+            </Typography>
+            <Typography
+              variant={matchesSM ? 'body' : 'subtitle1'}
+              sx={{
+                lineHeight: matchesSM ? 1.3 : 1.5,
+                marginBottom: '0.6em',
+                textAlign: matchesSM ? 'left' : 'right',
+              }}
+            >
+              "The Gatherings sessions are the highlight of Carole’s week.
+              <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
+                {''} She looks forward to them very much, loves the people and
+                feels
+                <Typography variant={matchesSM ? 'body' : 'subtitle2'}>
+                  they are all friends."
+                  <Typography
+                    variant={matchesSM ? 'body' : 'subtitle1'}
+                    sx={{ fontWeight: 'lighter' }}
+                  >
+                    {''} ~ Gerald Lewis
+                  </Typography>
+                </Typography>
+              </Typography>
+            </Typography>
+            <Grid container justifyContent={matchesSM ? 'left' : 'right'}>
+              <Button
+                variant="outlined"
+                component={Link}
+                to="/learn-more"
+                sx={{
+                  borderColor: '#7A9E9F',
+                  borderWidth: 2,
+                  textTransform: 'none',
+                  fontFamily: 'Cardo',
+                  fontWeight: 'bold',
+                  fontSize: '0.8rem',
+                  height: 35,
+                  width: matchesSM ? 'auto' : 133,
+                  padding: 1,
+                  marginTop: matchesSM ? 2 : undefined,
+                }}
+              >
+                Read More
+              </Button>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
@@ -202,55 +328,71 @@ const LandingPage = () => {
         {/*-----History Block----*/}
         <Grid
           container
-          direction="row"
-          justifyContent={matchesSM ? 'center' : 'flex-end'}
-          padding={matchesSM ? 5 : undefined}
+          direction={matchesSM ? 'column' : 'row'}
+          justifyContent={
+            matchesMD ? 'center' : matchesSM ? 'left' : 'flex-start'
+          }
+          alignItems={'center'}
+          padding={matchesSM ? 2.2 : undefined}
           sx={{ marginTop: matchesSM ? '3em' : '8em' }}
+          width={matchesSM ? '87%' : undefined}
         >
           <Grid
             item
             sx={{
-              marginRight: matchesSM ? 0 : '3em',
-              alignContent: matchesSM ? 'center' : 'right',
+              marginLeft: matchesSM ? 0 : '4.2em',
+              alignContent: matchesSM ? 'left' : 'left',
             }}
           >
             <Typography
-              variant="h4"
-              justifyContent={matchesSM ? 'center' : 'flex-end'}
+              variant={matchesSM ? 'h5' : 'h4'}
+              justifyContent={matchesSM ? 'left' : 'flex-start'}
               sx={{
                 fontFamily: 'Cardo',
                 fontVariant: 'small-caps',
                 color: '#FE5F55',
-                lineHeight: 1.7,
-                textAlign: matchesSM ? 'center' : 'right',
+                lineHeight: matchesSM ? 1.2 : 1.7,
+                textAlign: matchesSM ? 'left' : 'left',
               }}
             >
               Our History
             </Typography>
             <Typography
-              variant="subtitle1"
+              variant={matchesSM ? 'body' : 'subtitle1'}
               sx={{
-                lineHeight: 1.5,
+                lineHeight: matchesSM ? 1.3 : 1.2,
                 marginBottom: '0.6em',
-                textAlign: matchesSM ? 'center' : 'right',
+                textAlign: matchesSM ? 'center' : 'left',
               }}
             >
               Originally called Beginnings this program has served the NYC
-              memory loss community for over 10 years.
-              <Typography variant="subtitle1">
-                In 2019 we partnered with CaringKind. In response to COVID-19
-                the program transitioned online.
-                <Typography variant="subtitle1">
-                  That was how <b> Virtual Gatherings.</b> came to life,
-                  offering their exceptional service virtually.
+              <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
+                {''} memory loss community for over 10 years.
+              </Typography>
+              <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
+                {''} In 2019 we partnered with CaringKind. In response to
+                COVID-19
+                <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
+                  the program transitioned online.
+                </Typography>
+                <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
+                  {''} That was how <b> Virtual Gatherings</b> came to life,
+                  offering their
+                  <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
+                    {''} exceptional service virtually.
+                  </Typography>
                 </Typography>
               </Typography>
-              <Typography variant="subtitle1">
-                The virtual platform allows this unique holistic approach to be
-                offered globally.
+              <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
+                {''} The virtual platform allows this unique holistic approach
+                to be offered globally.
               </Typography>
             </Typography>
-            <Grid container justifyContent={matchesSM ? 'center' : 'right'}>
+            <Grid
+              container
+              justifyContent={matchesSM ? 'left' : 'left'}
+              marginTop={matchesSM ? 2 : undefined}
+            >
               <Button
                 variant="outlined"
                 component={Link}
@@ -273,89 +415,16 @@ const LandingPage = () => {
           </Grid>
           <Grid
             item
-            sx={{ marginRight: matchesSM ? 0 : '2em', marginTop: '2em' }}
+            sx={{
+              marginLeft: matchesMD ? 0 : matchesSM ? 0 : '2em',
+              marginTop: '2em',
+            }}
           >
             <img
               src={FoundersNY}
               alt="Mary Ellen and Susan of Virtual Gatherings"
-              width={403}
-              height={302}
-            />
-          </Grid>
-        </Grid>
-      </Grid>
-      <Grid item>
-        {' '}
-        {/*-----Why You Should Join Block----*/}
-        <Grid
-          container
-          direction="row"
-          justifyContent={matchesSM ? 'center' : undefined}
-          padding={matchesSM ? 5 : undefined}
-          sx={{ marginTop: matchesSM ? '3em' : '8em' }}
-        >
-          <Grid item sx={{ marginLeft: matchesSM ? 0 : '3em' }}>
-            <Typography
-              variant="h4"
-              sx={{
-                fontFamily: 'Cardo',
-                fontVariant: 'small-caps',
-                color: '#4F6367',
-                lineHeight: 1.7,
-                textAlign: matchesSM ? 'center' : undefined,
-              }}
-            >
-              Testimonials
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              sx={{
-                lineHeight: 1.5,
-                marginBottom: '0.6em',
-                textAlign: matchesSM ? 'center' : undefined,
-              }}
-            >
-              "The Gatherings sessions are the highlight of Carole’s week.
-              <Typography variant="subtitle1">
-                She looks forward to them very much, loves the people and feels
-                <Typography variant="subtitle2">
-                  they are all friends."
-                  <Typography variant="subtitle1" sx={{ fontWeight: 'light' }}>
-                    ~ Gerald Lewis
-                  </Typography>
-                </Typography>
-              </Typography>
-            </Typography>
-            <Grid container justifyContent={matchesSM ? 'center' : undefined}>
-              <Button
-                variant="outlined"
-                component={Link}
-                to="/learn-more"
-                sx={{
-                  borderColor: '#7A9E9F',
-                  borderWidth: 2,
-                  textTransform: 'none',
-                  fontFamily: 'Cardo',
-                  fontWeight: 'bold',
-                  fontSize: '0.8rem',
-                  height: 35,
-                  width: matchesSM ? 'auto' : 133,
-                  padding: 1,
-                }}
-              >
-                Read More
-              </Button>
-            </Grid>
-          </Grid>
-          <Grid
-            item
-            sx={{ marginLeft: matchesSM ? 0 : '2em', marginTop: '2em' }}
-          >
-            <img
-              src={WomanBack}
-              alt="Woman looking at computer screen"
-              width={336}
-              height={251}
+              width={matchesSM ? '94%' : 527}
+              height={matchesSM ? '94%' : 394}
             />
           </Grid>
         </Grid>
@@ -371,7 +440,7 @@ const LandingPage = () => {
             marginTop: matchesSM ? '2em' : '5em',
             marginBottom: matchesSM ? '2em' : '5em',
             backgroundImage: matchesSM
-              ? 'linear-gradient(to right, #FE5F55, #FAF9F6)'
+              ? 'linear-gradient(to bottom right, #FE5F55, #FAF9F6)'
               : 'linear-gradient(to bottom, #FE5F55, #FAF9F6)',
             boxShadow: 3,
             borderRadius: matchesSM ? 0 : 3,
@@ -379,7 +448,7 @@ const LandingPage = () => {
             paddingRight: matchesSM ? 0 : '2em',
             paddingLeft: matchesSM ? 0 : '2em',
             paddingBottom: matchesSM ? '0.5em' : '1.3em',
-            width: matchesSM ? 420 : '100%',
+            width: matchesSM ? 470 : '100%',
           }}
           direction={matchesSM ? 'column' : 'row'}
           textAlign={matchesSM ? 'left' : 'inherit'}
