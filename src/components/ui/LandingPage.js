@@ -325,7 +325,7 @@ const LandingPage = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item>
+      <Grid item sx={{ display: 'flex', alignItems: 'center' }}>
         {/*-----History Block----*/}
         <Grid
           container
@@ -366,19 +366,15 @@ const LandingPage = () => {
                 textAlign: matchesSM ? 'center' : 'left',
               }}
             >
-              Originally called Beginnings this program has served the NYC
+              Originally called Beginnings we have served the NYC
               <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
                 {''} memory loss community for over 10 years.
               </Typography>
               <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
-                {''} In 2019 we partnered with CaringKind. In response to
-                COVID-19
-                <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
-                  the program transitioned online.
-                </Typography>
+                {''} In response to COVID-19 the program transitioned online.
                 <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
                   {''} That was how <b> Virtual Gatherings</b> came to life,
-                  offering their
+                  offering its
                   <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
                     {''} exceptional service virtually.
                   </Typography>
@@ -416,6 +412,7 @@ const LandingPage = () => {
           </Grid>
           <Grid
             item
+            justifyContent={'center'}
             sx={{
               marginLeft: matchesMD ? 0 : matchesSM ? 0 : '2em',
               marginTop: '2em',
@@ -424,8 +421,8 @@ const LandingPage = () => {
             <img
               src={FoundersNY}
               alt="Mary Ellen and Susan of Virtual Gatherings"
-              width={matchesSM ? '94%' : 527}
-              height={matchesSM ? '94%' : 394}
+              width={matchesSM ? '94%' : matchesMD ? '90%' : 500}
+              height={matchesSM ? '94%' : matchesMD ? '90%' : 374}
             />
           </Grid>
         </Grid>

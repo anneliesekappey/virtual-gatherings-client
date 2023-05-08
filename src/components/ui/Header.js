@@ -158,8 +158,8 @@ const Header = (props) => {
           to="/"
           sx={{
             fontFamily: 'Cardo',
-            fontSize: '1rem',
-            minWidth: 5,
+            fontSize: '1.2rem',
+            minWidth: 10,
             marginLeft: '10px',
             '&:hover': {
               opacity: 0.7,
@@ -175,8 +175,8 @@ const Header = (props) => {
           to="/about-virtual-gatherings"
           sx={{
             fontFamily: 'Cardo',
-            fontSize: '1rem',
-            minWidth: 5,
+            fontSize: '1.2rem',
+            minWidth: 10,
             marginLeft: '10px',
             '&:hover': {
               opacity: 0.7,
@@ -189,8 +189,8 @@ const Header = (props) => {
           to="/online-meetings"
           sx={{
             fontFamily: 'Cardo',
-            fontSize: '1rem',
-            minWidth: 5,
+            fontSize: '1.2rem',
+            minWidth: 10,
             marginLeft: '10px',
             '&:hover': {
               opacity: 0.7,
@@ -203,8 +203,8 @@ const Header = (props) => {
           to="/games-information-resources-for-patients-living-with-dementia-and-alzheimers"
           sx={{
             fontFamily: 'Cardo',
-            fontSize: '1rem',
-            minWidth: 5,
+            fontSize: '1.2rem',
+            minWidth: 10,
             marginLeft: '10px',
             '&:hover': {
               opacity: 0.7,
@@ -217,8 +217,8 @@ const Header = (props) => {
           to="/contact-virtual-gatherings"
           sx={{
             fontFamily: 'Cardo',
-            fontSize: '1rem',
-            minWidth: 5,
+            fontSize: '1.2rem',
+            minWidth: 10,
             marginLeft: '10px',
             '&:hover': {
               opacity: 0.7,
@@ -232,14 +232,14 @@ const Header = (props) => {
         to="/signup"
         sx={{
           borderRadius: '15px',
-          marginLeft: '3px',
-          marginRight: '1px',
+          marginLeft: '7px',
+          marginRight: '5px',
           fontFamily: 'Cardo',
           fontSize: '1rem',
           textTransform: 'none',
           fontVariant: 'small-caps',
-          padding: '3px',
-          height: '45px',
+          padding: '4px',
+          height: '49px',
           color: 'white',
         }}
         variant="contained"
@@ -252,14 +252,14 @@ const Header = (props) => {
         to="/login"
         sx={{
           borderRadius: '15px',
-          marginLeft: '3px',
-          marginRight: '1px',
+          marginLeft: '7px',
+          marginRight: '5px',
           fontFamily: 'Cardo',
           fontSize: '1rem',
           textTransform: 'none',
           fontVariant: 'small-caps',
-          padding: '3px',
-          height: '45px',
+          padding: '4px',
+          height: '49px',
           color: 'white',
         }}
         variant="contained"
