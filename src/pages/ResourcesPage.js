@@ -94,7 +94,7 @@ const questions = [
   {
     id: 4,
     imageSrc: ElvisPresley,
-    questionText: 'Which of his songs is used in the movie Forrest Gump',
+    questionText: 'Which of his songs is used in the movie Forrest Gump?',
     answerOptions: [
       {
         isCorrect: true,
@@ -331,7 +331,7 @@ const ResourcesPage = () => {
           <Grid item>
             <Typography variant="h4">Play with us!</Typography>
             <Typography variant="subtitle2">
-              Click on the answer you think it's correct.
+              Click on the correct answer.
             </Typography>
           </Grid>
           <Grid item>
