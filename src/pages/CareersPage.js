@@ -142,10 +142,10 @@ const CareersPage = () => {
       >
         <Grid item container lg={matchesSM ? 7 : 8}>
           <ImageList
-            sx={{ height: matchesSM ? '20em' : '70em' }}
+            sx={{ height: matchesSM ? '25em' : '70em' }}
             variant={matchesSM ? 'standard' : 'woven'}
-            cols={matchesSM ? 2 : 3}
-            gap={matchesSM ? 3 : 7}
+            cols={matchesSM ? 6 : 3}
+            gap={matchesSM ? 2 : 7}
           >
             {itemImages.map((item) => (
               <ImageListItem key={item.img}>
