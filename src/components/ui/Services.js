@@ -9,6 +9,7 @@ import { CardContent } from '@mui/material'
 
 const Services = () => {
   const matchesSM = useMediaQuery('(max-width:600px)')
+  const matchesMD = useMediaQuery('(max-width:900px)')
 
   return (
     <Grid container direction={'column'} backgroundColor="#FAF9F6">
@@ -65,17 +66,13 @@ const Services = () => {
                 paddingRight: matchesSM ? '0.5em' : '2em',
                 paddingLeft: matchesSM ? '0.5em' : '2em',
                 paddingBottom: matchesSM ? '0.5em' : '1.3em',
-                height: matchesSM ? '26rem' : '15rem',
+                height: matchesSM ? '26rem' : matchesMD ? '18.5rem' : '15rem',
                 width: matchesSM ? 'auto' : '77%',
               }}
             >
               <CardContent>
                 <Grid container direction="column">
-                  <Grid item>
-                    {/* <Grid container justifyContent={'center'}>
-                      <img src={} alt="" width={276} height={368} />
-                    </Grid> */}
-                  </Grid>
+                  <Grid item></Grid>
                   <Grid item textAlign={'center'}>
                     <Typography
                       variant="h4"
@@ -152,7 +149,7 @@ const Services = () => {
                 paddingRight: matchesSM ? '0.5em' : '2em',
                 paddingLeft: matchesSM ? '0.5em' : '2em',
                 paddingBottom: matchesSM ? '0.5em' : '1.3em',
-                height: matchesSM ? '17rem' : '13rem',
+                height: matchesSM ? '17rem' : matchesMD ? '14rem' : '13rem',
                 width: matchesSM ? 'auto' : '77%',
               }}
             >
@@ -232,17 +229,13 @@ const Services = () => {
                 paddingRight: matchesSM ? '0.5em' : '2em',
                 paddingLeft: matchesSM ? '0.5em' : '2em',
                 paddingBottom: matchesSM ? '0.5em' : '1.3em',
-                height: matchesSM ? '24rem' : '15rem',
+                height: matchesSM ? '24rem' : matchesMD ? '16rem' : '15rem',
                 width: matchesSM ? 'auto' : '77%',
               }}
             >
               <CardContent>
                 <Grid container direction="column">
-                  <Grid item>
-                    {/* <Grid container justifyContent={'center'}>
-                      <img src={} alt="" width={276} height={368} />
-                    </Grid> */}
-                  </Grid>
+                  <Grid item></Grid>
                   <Grid item textAlign={'center'}>
                     <Typography
                       variant="h4"
@@ -318,17 +311,13 @@ const Services = () => {
                 paddingRight: matchesSM ? '0.5em' : '2em',
                 paddingLeft: matchesSM ? '0.5em' : '2em',
                 paddingBottom: matchesSM ? '0.5em' : '1.3em',
-                height: matchesSM ? '26rem' : '15rem',
+                height: matchesSM ? '26rem' : matchesMD ? '18rem' : '15rem',
                 width: matchesSM ? 'auto' : '77%',
               }}
             >
               <CardContent>
                 <Grid container direction="column">
-                  <Grid item>
-                    {/* <Grid container justifyContent={'center'}>
-                      <img src={} alt="" width={276} height={368} />
-                    </Grid> */}
-                  </Grid>
+                  <Grid item></Grid>
                   <Grid item textAlign={'center'}>
                     <Typography
                       variant="h4"
@@ -405,17 +394,12 @@ const Services = () => {
                 paddingRight: matchesSM ? '0.5em' : '2em',
                 paddingLeft: matchesSM ? '0.5em' : '2em',
                 paddingBottom: matchesSM ? '0.5em' : '1.3em',
-                height: matchesSM ? '22rem' : '15rem',
+                height: matchesSM ? '22rem' : matchesMD ? '16rem' : '15rem',
                 width: matchesSM ? 'auto' : '77%',
               }}
             >
               <CardContent>
                 <Grid container direction="column">
-                  <Grid item>
-                    {/* <Grid container justifyContent={'center'}>
-                      <img src={} alt="" width={276} height={368} />
-                    </Grid> */}
-                  </Grid>
                   <Grid item textAlign={'center'}>
                     <Typography
                       variant="h4"
@@ -491,17 +475,12 @@ const Services = () => {
                 paddingRight: matchesSM ? '0.5em' : '2em',
                 paddingLeft: matchesSM ? '0.5em' : '2em',
                 paddingBottom: matchesSM ? '0.5em' : '1.3em',
-                height: matchesSM ? '26.5rem' : '15rem',
+                height: matchesSM ? '26.5rem' : matchesMD ? '18.5rem' : '15rem',
                 width: matchesSM ? 'auto' : '77%',
               }}
             >
               <CardContent>
                 <Grid container direction="column">
-                  <Grid item>
-                    {/* <Grid container justifyContent={'center'}>
-                      <img src={} alt="" width={276} height={368} />
-                    </Grid> */}
-                  </Grid>
                   <Grid item textAlign={'center'}>
                     <Typography
                       variant="h4"

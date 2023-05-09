@@ -15,6 +15,7 @@ import Services from './components/ui/Services'
 import LearnMore from './components/ui/LearnMore'
 import Contact from './components/ui/Contact'
 import ShoppingCart from './pages/ShoppingCart'
+import ScrollToTop from './components/ScrollToTop'
 
 const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -28,6 +29,7 @@ const App = () => {
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
       />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element=<LandingPage /> />
         <Route path="/signup" element=<Signup /> />

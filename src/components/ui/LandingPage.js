@@ -3,9 +3,10 @@ import { Grid } from '@mui/material'
 import { useMediaQuery } from '@mui/material'
 import { Button } from '@mui/material'
 import { Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import { Link } from 'react-router-dom'
 import MissionPicture from '../../images/screens/ScreenGroup.png'
-import FoundersNY from '../../images/team/FoundersNYBackground2.jpeg'
+// import FoundersNY from '../../images/team/FoundersNYBackground2.jpeg'
 import WomanBack from '../../images/screens/WomanBack.jpeg'
 import MainImage from '../../images/icons/MainImage.png'
 
@@ -138,11 +139,11 @@ const LandingPage = () => {
           <Grid
             item
             sx={{
-              maxWidth: matchesSM ? undefined : '58em',
-              minWidth: matchesSM ? undefined : '18em',
+              maxWidth: matchesSM ? undefined : matchesMD ? undefined : '58em',
+              minWidth: matchesSM ? undefined : matchesMD ? undefined : '18em',
               marginTop: '2em',
-              marginLeft: matchesSM ? 0 : '4%',
-              marginRight: matchesSM ? 0 : '3%',
+              marginLeft: matchesSM ? 0 : matchesMD ? '10%' : '4%',
+              marginRight: matchesSM ? 0 : matchesMD ? '1%' : '3%',
             }}
           >
             <img
@@ -163,7 +164,7 @@ const LandingPage = () => {
           justifyContent={matchesMD ? 'center' : matchesSM ? 'left' : undefined}
           alignItems={'center'}
           padding={matchesSM ? 2.2 : undefined}
-          sx={{ marginTop: matchesSM ? '3em' : '8em' }}
+          sx={{ marginTop: matchesSM ? '3em' : matchesMD ? '4em' : '8em' }}
           width={matchesSM ? '75%' : undefined}
         >
           <Grid
@@ -325,25 +326,25 @@ const LandingPage = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item sx={{ display: 'flex', alignItems: 'center' }}>
+      <Grid item>
         {/*-----History Block----*/}
         <Grid
           container
           direction={matchesSM ? 'column' : 'row'}
-          justifyContent={
-            matchesMD ? 'center' : matchesSM ? 'left' : 'flex-start'
-          }
+          justifyContent={matchesMD ? 'center' : matchesSM ? 'left' : undefined}
           alignItems={'center'}
           padding={matchesSM ? 2.2 : undefined}
           sx={{ marginTop: matchesSM ? '3em' : '8em' }}
-          width={matchesSM ? '87%' : undefined}
+          width={matchesSM ? '75%' : undefined}
         >
           <Grid
             item
-            sx={{
-              marginLeft: matchesSM ? 0 : '4.2em',
-              alignContent: matchesSM ? 'left' : 'left',
-            }}
+            xs={12}
+            sm={12}
+            md={10}
+            lg={10}
+            xl={10}
+            sx={{ marginLeft: matchesMD ? 0 : matchesSM ? 0 : '4.2em' }}
           >
             <Typography
               variant={matchesSM ? 'h5' : 'h4'}
@@ -358,36 +359,40 @@ const LandingPage = () => {
             >
               Our History
             </Typography>
-            <Typography
-              variant={matchesSM ? 'body' : 'subtitle1'}
-              sx={{
-                lineHeight: matchesSM ? 1.3 : 1.2,
-                marginBottom: '0.6em',
-                textAlign: matchesSM ? 'center' : 'left',
-              }}
-            >
-              Originally called Beginnings we have served the NYC
-              <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
+            <Box marginBottom={'1em'}>
+              <Typography
+                variant={matchesSM ? 'body' : 'p'}
+                sx={{
+                  lineHeight: matchesSM ? 1.3 : 1.5,
+                  marginBottom: '0.6em',
+                  textAlign: matchesSM ? 'center' : 'left',
+                  fontSize: '1.2em',
+                }}
+              >
+                Originally called Beginnings we have served the NYC
+                {/* <Typography variant={matchesSM ? 'body' : 'subtitle1'}> */}
                 {''} memory loss community for over 10 years.
-              </Typography>
-              <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
+                {/* </Typography> */}
+                {/* <Typography variant={matchesSM ? 'body' : 'subtitle1'}> */}
                 {''} In response to COVID-19 the program transitioned online.
-                <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
-                  {''} That was how <b> Virtual Gatherings</b> came to life,
-                  offering its
-                  <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
-                    {''} exceptional service virtually.
-                  </Typography>
+                {/* <Typography variant={matchesSM ? 'body' : 'subtitle1'}> */}
+                {''} That was how <b> Virtual Gatherings</b> came to life,
+                offering its
+                {/* <Typography variant={matchesSM ? 'body' : 'subtitle1'}> */}
+                {''} exceptional service virtually.
+                {/* </Typography>
                 </Typography>
               </Typography>
-              <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
+              <Typography variant={matchesSM ? 'body' : 'subtitle1'}> */}
                 {''} The virtual platform allows this unique holistic approach
                 to be offered globally.
+                {/* </Typography>
+            </Typography> */}
               </Typography>
-            </Typography>
+            </Box>
             <Grid
               container
-              justifyContent={matchesSM ? 'left' : 'left'}
+              justifyContent={matchesSM ? 'center' : 'flex-start'}
               marginTop={matchesSM ? 2 : undefined}
             >
               <Button
@@ -410,21 +415,22 @@ const LandingPage = () => {
               </Button>
             </Grid>
           </Grid>
-          <Grid
-            item
-            justifyContent={'center'}
+          {/* <Grid
+            container
+            flexDirection={'row-reverse'}
             sx={{
-              marginLeft: matchesMD ? 0 : matchesSM ? 0 : '2em',
-              marginTop: '2em',
+              marginLeft: matchesSM ? 0 : '3em',
+              marginRight: matchesSM ? 0 : '4.2em',
+              marginTop: '1em',
             }}
           >
             <img
               src={FoundersNY}
               alt="Mary Ellen and Susan of Virtual Gatherings"
-              width={matchesSM ? '94%' : matchesMD ? '90%' : 500}
-              height={matchesSM ? '94%' : matchesMD ? '90%' : 374}
+              width={matchesSM ? '94%' : 500}
+              height={matchesSM ? '94%' : 374}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
       <Grid item>
@@ -494,7 +500,10 @@ const LandingPage = () => {
           </Grid>
           <Grid
             item
-            sx={{ marginRight: matchesSM ? '1em' : '3em', textAlign: 'right' }}
+            sx={{
+              marginRight: matchesSM ? '1em' : '3em',
+              textAlign: 'right',
+            }}
           >
             <Grid
               container

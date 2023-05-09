@@ -33,6 +33,7 @@ function ElevationScroll(props) {
 
 const Header = (props) => {
   const matchesSM = useMediaQuery('(max-width:600px)')
+  const matchesXL = useMediaQuery('(max-width:1200px)')
   const theme = useTheme()
   const iOS =
     typeof navigator !== 'undefined' &&
@@ -158,7 +159,7 @@ const Header = (props) => {
           to="/"
           sx={{
             fontFamily: 'Cardo',
-            fontSize: '1.2rem',
+            fontSize: matchesXL ? '1.2rem' : '1.1rem',
             minWidth: 10,
             marginLeft: '10px',
             '&:hover': {
@@ -175,7 +176,7 @@ const Header = (props) => {
           to="/about-virtual-gatherings"
           sx={{
             fontFamily: 'Cardo',
-            fontSize: '1.2rem',
+            fontSize: matchesXL ? '1.2rem' : '1.1rem',
             minWidth: 10,
             marginLeft: '10px',
             '&:hover': {
@@ -189,7 +190,7 @@ const Header = (props) => {
           to="/online-meetings"
           sx={{
             fontFamily: 'Cardo',
-            fontSize: '1.2rem',
+            fontSize: matchesXL ? '1.2rem' : '1.1rem',
             minWidth: 10,
             marginLeft: '10px',
             '&:hover': {
@@ -203,7 +204,7 @@ const Header = (props) => {
           to="/games-information-resources-for-patients-living-with-dementia-and-alzheimers"
           sx={{
             fontFamily: 'Cardo',
-            fontSize: '1.2rem',
+            fontSize: matchesXL ? '1.2rem' : '1.1rem',
             minWidth: 10,
             marginLeft: '10px',
             '&:hover': {
@@ -217,7 +218,7 @@ const Header = (props) => {
           to="/contact-virtual-gatherings"
           sx={{
             fontFamily: 'Cardo',
-            fontSize: '1.2rem',
+            fontSize: matchesXL ? '1.2rem' : '1.1rem',
             minWidth: 10,
             marginLeft: '10px',
             '&:hover': {
@@ -541,12 +542,12 @@ const Header = (props) => {
   return (
     <ElevationScroll>
       <AppBar position="sticky">
-        <Toolbar sx={{ margin: matchesSM ? 1 : 2.5 }}>
+        <Toolbar sx={{ margin: matchesSM ? 1 : matchesXL ? 2.5 : 1.6 }}>
           <Button component={Link} to="/">
             <img
               src={LogoNoWords}
-              height={matchesSM ? '47.5' : '87'}
-              width={matchesSM ? '86' : '156'}
+              height={matchesSM ? '47.5' : matchesXL ? '87' : '78'}
+              width={matchesSM ? '86' : matchesXL ? '156' : '140.4'}
               alt="Virtual Gatherings Logo"
             />
           </Button>
