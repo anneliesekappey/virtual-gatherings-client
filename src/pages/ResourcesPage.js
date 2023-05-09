@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Grid } from '@mui/material'
-import { Card } from '@mui/material'
-import { CardContent } from '@mui/material'
+import { Button, Grid, useMediaQuery } from '@mui/material'
 import { Typography } from '@mui/material'
 import { List } from '@mui/material'
 import { ListItem } from '@mui/material'
@@ -9,6 +7,8 @@ import { Hidden } from '@mui/material'
 import { IconButton } from '@mui/material'
 import { ArrowBack } from '@mui/icons-material'
 import { ArrowForward } from '@mui/icons-material'
+import { Box } from '@mui/material'
+import { Paper } from '@mui/material'
 
 import CharlieBrown from '../images/quiz/CharlieBrown.jpg'
 import MLK from '../images/quiz/MLK.jpg'
@@ -255,6 +255,7 @@ const questions = [
 ]
 
 const ResourcesPage = () => {
+  const matchesSM = useMediaQuery('(maxWidth=600px)')
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [activeAnswer, setActiveAnswer] = useState(null)
   const [answerStatus, setAnswerStatus] = useState(null)
@@ -327,7 +328,12 @@ const ResourcesPage = () => {
             </Grid>
           </Grid>
         </Hidden>
-        <Grid container direction="column" alignItems={'center'}>
+        <Grid
+          container
+          direction="column"
+          justifyContent={'center'}
+          alignItems={'center'}
+        >
           <Grid item>
             <Typography variant="h4">Play with us!</Typography>
             <Typography variant="subtitle2">
@@ -335,57 +341,101 @@ const ResourcesPage = () => {
             </Typography>
           </Grid>
           <Grid item>
-            {questions.length && currentQuestion <= questions.length - 1 && (
-              <Grid container flexDirection="row">
-                <Grid item container>
-                  <img src={imageSrc} alt={questionText} />
-                  <Card key={currentQuestion}>
-                    <CardContent>
-                      <Typography variant="h6" gutterBottom>
-                        Question #{currentQuestion + 1}
-                      </Typography>
-                      <Typography variant="subtitle1" gutterBottom>
-                        {questionText}
-                      </Typography>
-                      <List>
-                        {answerOptions.map((answerOption, index) => (
-                          <ListItem key={index}>
+            <Grid container flexDirection="row">
+              <Grid item container>
+                {questions.length &&
+                  currentQuestion <= questions.length - 1 && (
+                    <Box sx={{ maxWidth: matchesSM ? 500 : 900, flexGrow: 2 }}>
+                      <Paper
+                        square
+                        elevation={matchesSM ? 6 : 15}
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          height: matchesSM ? 80 : 70,
+                          padding: matchesSM ? 3 : 3,
+                          bgcolor: '#FAF9F6',
+                          color: '#FE5F55',
+                          borderRadius: matchesSM ? 0 : 1,
+                        }}
+                      >
+                        <Typography
+                          variant="h6"
+                          sx={{
+                            fontFamily: 'Montserrat',
+                            lineHeight: '1.3em',
+                            fontVariant: 'small-caps',
+                            fontSize: '1.3em',
+                          }}
+                        >
+                          {questionText}
+                        </Typography>
+                      </Paper>
+                      <Box
+                        sx={{
+                          height: matchesSM ? 700 : 550,
+                          maxWidth: matchesSM ? 500 : 900,
+                          width: '100%',
+                          paddingTop: 1.5,
+                          paddingBottom: 5,
+                        }}
+                      >
+                        <Paper
+                          square
+                          elevation={6}
+                          sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            height: matchesSM ? 700 : 550,
+                            paddingLeft: 3,
+                            paddingRight: 3,
+                            paddingTop: 0.4,
+                            paddingBottom: 0.4,
+                            bgcolor: '#FAF9F6',
+                            color: '#868686',
+                            borderRadius: matchesSM ? 0 : 2,
+                          }}
+                        >
+                          <img src={imageSrc} alt={questionText} />
+                          <List>
+                            {answerOptions.map((answerOption, index) => (
+                              <ListItem key={index}>
+                                <Button
+                                  variant="contained"
+                                  sx={{
+                                    backgroundColor:
+                                      activeAnswer !== null &&
+                                      activeAnswer === index
+                                        ? answerOption.isCorrect === true
+                                          ? '#4CAF50'
+                                          : '#F44336'
+                                        : undefined,
+                                  }}
+                                  onClick={() => handleAnswerClick(index)}
+                                  // disabled={answerStatus !== null}
+                                >
+                                  {answerOption.answerText}
+                                </Button>
+                              </ListItem>
+                            ))}
+                          </List>
+                          {answerStatus !== null && (
                             <Button
                               variant="contained"
-                              sx={{
-                                backgroundColor:
-                                  activeAnswer !== null &&
-                                  activeAnswer === index
-                                    ? answerOption.isCorrect === true
-                                      ? '#4CAF50'
-                                      : '#F44336'
-                                    : undefined,
-                              }}
-                              onClick={() => handleAnswerClick(index)}
-                              // disabled={answerStatus !== null}
+                              onClick={handleNextClick}
+                              disabled={
+                                currentQuestion === questions.length - 1
+                              }
                             >
-                              {answerOption.answerText}
+                              Next Question
                             </Button>
-                          </ListItem>
-                        ))}
-                      </List>
-                      {answerStatus !== null && (
-                        <Button
-                          variant="contained"
-                          onClick={handleNextClick}
-                          disabled={currentQuestion === questions.length - 1}
-                        >
-                          Next Question
-                        </Button>
-                      )}
-                    </CardContent>
-                  </Card>
-                </Grid>
+                          )}
+                        </Paper>
+                      </Box>
+                    </Box>
+                  )}
               </Grid>
-            )}
-            {currentQuestion === questions.length && (
-              <Typography variant="h4">Quiz Completed! Well Done!</Typography>
-            )}
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
