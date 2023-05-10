@@ -37,7 +37,7 @@ const Cart = ({ cartItems, addToCart, removeFromCart }) => {
             Your Cart
           </Typography>
         </Grid>
-        <Grid container>
+        <Grid container flexDirection={'column'}>
           {cartItems.length === 0 ? (
             <Typography variant="h6">No items in cart.</Typography>
           ) : null}

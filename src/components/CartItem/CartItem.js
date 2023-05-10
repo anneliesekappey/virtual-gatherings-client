@@ -14,14 +14,14 @@ const CartItem = ({ item, addToCart, removeFromCart }) => {
       <Grid
         item
         container
-        direction={matchesSM ? 'row' : 'column'}
+        direction={'column'}
         justifyContent={matchesSM ? 'center' : 'left'}
         sx={{
           padding: matchesSM ? 0 : 6,
           marginBottom: matchesSM ? '2em' : matchesLG ? '2em' : 0,
           marginTop: matchesSM ? '1em' : matchesLG ? '2em' : 0,
         }}
-        sm={6}
+        sm={3}
         lg={9}
       >
         <Grid item container direction={'column'}>

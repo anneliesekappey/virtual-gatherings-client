@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@mui/material'
 import { Wrapper } from './Item.Styles.js'
-import { Card } from '@mui/material'
-import { CardContent } from '@mui/material'
+// import { Card } from '@mui/material'
+// import { CardContent } from '@mui/material'
 import { Typography } from '@mui/material'
 import { Grid } from '@mui/material'
 import TuesWedsFriSat from '../../images/sessions/TuesWedsFriSat.jpeg'
@@ -70,35 +70,56 @@ const Item = ({ item, handleAddToCart, selectedSession }) => {
     <Grid container flexDirection={'row'}>
       <Wrapper>
         <img src={imageSrc} alt={item.title} />
-        <Card alignItem={'center'}>
-          <CardContent key={item._id}>
-            <Typography variant="h4" textAlign={'center'}>
-              {item.title}
-            </Typography>
-            <Typography variant="subtitle1" textAlign={'center'}>
-              {item.description}
-            </Typography>
-            <Typography variant="subtitle2" textAlign={'center'}>
-              {item.days}
-            </Typography>
-            <Typography variant="subtitle2" textAlign={'center'}>
-              {item.time}
-            </Typography>
-            <Typography variant="subtitle2" textAlign={'center'}>
-              {item.frequency}
-            </Typography>
-            <Typography variant="subtitle2" textAlign={'center'}>
-              ${item.price}
-            </Typography>
-            <Grid container justifyContent={'center'}>
-              <Button variant="outlined" onClick={handleClick}>
-                {/* onClick={() => handleAddToCart(item)}> */}
-                Add to cart
-              </Button>
-              {isSelected}
-            </Grid>
-          </CardContent>
-        </Card>
+        {/* <Card alignItem={'center'}> */}
+        {/* <CardContent key={item._id}> */}
+        <Typography
+          variant="h4"
+          textAlign={'center'}
+          sx={{
+            paddingTop: 5,
+            paddingBottom: item._id === '6454f75bc27f89b1408c8985' ? 1 : 3,
+          }}
+        >
+          {item.title}
+        </Typography>
+        <Typography variant="subtitle1" textAlign={'center'}>
+          {item.description}
+        </Typography>
+        <Typography
+          variant="subtitle2"
+          textAlign={'center'}
+          sx={{ paddingTop: item._id === '6454f75bc27f89b1408c8985' ? 1 : 2 }}
+        >
+          {item.days}
+        </Typography>
+        <Typography variant="subtitle2" textAlign={'center'}>
+          {item.time}
+        </Typography>
+        <Typography variant="subtitle2" textAlign={'center'}>
+          {item.frequency}
+        </Typography>
+        <Typography variant="subtitle2" textAlign={'center'}>
+          ${item.price}
+        </Typography>
+        <Grid container justifyContent={'center'}>
+          <Button
+            variant="outlined"
+            onClick={handleClick}
+            sx={{
+              padding: 1,
+              marginBottom: item._id === '6454f75bc27f89b1408c8985' ? 0.5 : 1.5,
+              '&:hover': {
+                backgroundColor: '#FE5F55',
+              },
+            }}
+          >
+            {/* onClick={() => handleAddToCart(item)}> */}
+            Add to cart
+          </Button>
+          {isSelected}
+        </Grid>
+        {/* </CardContent>
+        </Card> */}
       </Wrapper>
     </Grid>
   )

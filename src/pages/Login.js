@@ -111,6 +111,7 @@ const Login = () => {
                     <Grid item container justifyContent={'center'}>
                       <Grid item>
                         <TextField
+                          type={'password'}
                           variant="outlined"
                           label="Password"
                           id="password"
