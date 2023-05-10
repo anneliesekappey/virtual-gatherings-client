@@ -143,13 +143,13 @@ const CareersPage = () => {
         container
         direction={matchesSM ? 'column' : 'row'}
         justifyContent={'center'}
-        backgroundColor="#FAF9F6"
+        sx={{ backgroundColor: '#FAF9F6' }}
       >
         <Grid item container lg={8}>
           <ImageList
-            sx={{ height: matchesSM ? '25em' : '70em' }}
+            sx={{ height: matchesSM ? '29em' : '70em' }}
             variant={matchesSM ? 'standard' : 'woven'}
-            cols={matchesSM ? 6 : 3}
+            cols={matchesSM ? 4 : 3}
             gap={matchesSM ? 2 : 7}
           >
             {itemImages.map((item) => (

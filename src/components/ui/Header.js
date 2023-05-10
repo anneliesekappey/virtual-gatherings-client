@@ -404,7 +404,7 @@ const Header = (props) => {
             divider
             ListItemButton
             component={Link}
-            to="/work-with-virtual-gaherings"
+            to="/work-with-virtual-gatherings"
             selected={props.value === 4}
           >
             <ListItemText
