@@ -113,7 +113,12 @@ const CareersPage = () => {
   }
 
   return (
-    <Grid item container direction="row" sx={{ backgroundColor: '#F8F8F8' }}>
+    <Grid
+      item
+      container
+      direction={matchesSM ? 'column' : 'row'}
+      sx={{ backgroundColor: '#F8F8F8' }}
+    >
       <Hidden mdDown>
         <Grid container direction="row" justifyContent={'space-between'}>
           <Grid
@@ -136,11 +141,11 @@ const CareersPage = () => {
       <Grid
         item
         container
-        direction="row"
+        direction={matchesSM ? 'column' : 'row'}
         justifyContent={'center'}
         backgroundColor="#FAF9F6"
       >
-        <Grid item container lg={matchesSM ? 7 : 8}>
+        <Grid item container lg={8}>
           <ImageList
             sx={{ height: matchesSM ? '25em' : '70em' }}
             variant={matchesSM ? 'standard' : 'woven'}
@@ -168,7 +173,7 @@ const CareersPage = () => {
             marginBottom: matchesSM ? '2em' : matchesLG ? '4em' : 0,
             marginTop: matchesSM ? '1em' : matchesLG ? '4em' : 0,
           }}
-          lg={matchesSM ? 5 : 4}
+          lg={4}
         >
           <Grid item>
             <Grid container direction="column">

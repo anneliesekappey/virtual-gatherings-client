@@ -64,7 +64,7 @@ const questions = [
       },
       {
         isCorrect: false,
-        answerText: 'Equality in America',
+        answerText: 'Equality',
       },
     ],
   },
@@ -87,7 +87,7 @@ const questions = [
       },
       {
         isCorrect: true,
-        answerText: 'Mr. Smith Goes to Washington',
+        answerText: 'Funny Girl',
       },
     ],
   },
@@ -336,12 +336,12 @@ const ResourcesPage = () => {
         >
           <Grid item>
             <Typography variant="h4">Play with us!</Typography>
-            <Typography variant="subtitle2">
+            {/* <Typography variant="subtitle1">
               Click on the correct answer.
-            </Typography>
+            </Typography> */}
           </Grid>
-          <Grid item>
-            <Grid container flexDirection="row">
+          <Grid item sx={{ marginTop: 4 }}>
+            <Grid container flexDirection={matchesSM ? 'column' : 'row'}>
               <Grid item container>
                 {questions.length &&
                   currentQuestion <= questions.length - 1 && (
@@ -352,8 +352,8 @@ const ResourcesPage = () => {
                         sx={{
                           display: 'flex',
                           alignItems: 'center',
-                          height: matchesSM ? 80 : 70,
-                          padding: matchesSM ? 3 : 3,
+                          height: matchesSM ? 80 : 60,
+                          padding: matchesSM ? 1.6 : 2.6,
                           bgcolor: '#FAF9F6',
                           color: '#FE5F55',
                           borderRadius: matchesSM ? 0 : 1,
@@ -373,10 +373,10 @@ const ResourcesPage = () => {
                       </Paper>
                       <Box
                         sx={{
-                          height: matchesSM ? 700 : 550,
+                          height: matchesSM ? 600 : 350,
                           maxWidth: matchesSM ? 500 : 900,
                           width: '100%',
-                          paddingTop: 1.5,
+                          paddingTop: 1,
                           paddingBottom: 5,
                         }}
                       >
@@ -386,9 +386,10 @@ const ResourcesPage = () => {
                           sx={{
                             display: 'flex',
                             alignItems: 'center',
-                            height: matchesSM ? 700 : 550,
-                            paddingLeft: 3,
-                            paddingRight: 3,
+                            justifyContent: 'center',
+                            height: matchesSM ? 600 : 350,
+                            paddingLeft: 0.5,
+                            paddingRight: 0.5,
                             paddingTop: 0.4,
                             paddingBottom: 0.4,
                             bgcolor: '#FAF9F6',
@@ -396,19 +397,46 @@ const ResourcesPage = () => {
                             borderRadius: matchesSM ? 0 : 2,
                           }}
                         >
-                          <img src={imageSrc} alt={questionText} />
-                          <List>
+                          <img
+                            src={imageSrc}
+                            style={{
+                              width: CharlieBrown
+                                ? '225px'
+                                : PrincessDiana
+                                ? '180.5px'
+                                : JohnLennon
+                                ? '188.5'
+                                : undefined,
+                              height: CharlieBrown
+                                ? '225px'
+                                : PrincessDiana
+                                ? '225px'
+                                : JohnLennon
+                                ? '225px'
+                                : undefined,
+                            }}
+                            alt={questionText}
+                          />
+                          <List justifyContent="center" alignItems="center">
                             {answerOptions.map((answerOption, index) => (
                               <ListItem key={index}>
                                 <Button
                                   variant="contained"
                                   sx={{
+                                    width: 147,
+                                    fontFamily: 'Cardo',
+                                    fontSize: '1rem',
+                                    textTransform: 'none',
+                                    color: '#4F6367',
+                                    '&:hover': {
+                                      backgroundColor: '#B8D8D8',
+                                    },
                                     backgroundColor:
                                       activeAnswer !== null &&
                                       activeAnswer === index
                                         ? answerOption.isCorrect === true
-                                          ? '#4CAF50'
-                                          : '#F44336'
+                                          ? '#4CAF50 !important'
+                                          : '#FE5F55 !important'
                                         : undefined,
                                   }}
                                   onClick={() => handleAnswerClick(index)}
@@ -418,18 +446,32 @@ const ResourcesPage = () => {
                                 </Button>
                               </ListItem>
                             ))}
+                            <ListItem>
+                              {answerStatus !== null && (
+                                <Button
+                                  sx={{
+                                    width: 147,
+                                    fontFamily: 'Cardo',
+                                    fontSize: '1rem',
+                                    textTransform: 'none',
+                                    fontVariant: 'small-caps',
+                                    color: 'white',
+                                    backgroundColor: '#7A9E9F',
+                                    '&:hover': {
+                                      backgroundColor: '#7A9E9F',
+                                    },
+                                  }}
+                                  variant="contained"
+                                  onClick={handleNextClick}
+                                  disabled={
+                                    currentQuestion === questions.length - 1
+                                  }
+                                >
+                                  Next Question
+                                </Button>
+                              )}
+                            </ListItem>
                           </List>
-                          {answerStatus !== null && (
-                            <Button
-                              variant="contained"
-                              onClick={handleNextClick}
-                              disabled={
-                                currentQuestion === questions.length - 1
-                              }
-                            >
-                              Next Question
-                            </Button>
-                          )}
                         </Paper>
                       </Box>
                     </Box>
