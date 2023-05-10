@@ -217,7 +217,7 @@ const LandingPage = () => {
               <Grid
                 container
                 justifyContent={matchesSM ? 'left' : undefined}
-                sx={{ marginTop: matchesSM ? 2 : 6.85 }}
+                sx={{ marginTop: matchesSM ? 2 : 6 }}
               >
                 <Button
                   variant="outlined"
@@ -247,7 +247,9 @@ const LandingPage = () => {
           <Grid
             container
             direction={matchesSM ? 'column' : 'row'}
-            justifyContent={matchesMD ? 'center' : matchesSM ? 'left' : 'right'}
+            justifyContent={
+              matchesMD ? 'center' : matchesSM ? 'left' : 'center'
+            }
             alignItems={'center'}
             padding={matchesSM ? 2.2 : undefined}
             sx={{ marginTop: matchesSM ? '3em' : '6.7em' }}
@@ -275,7 +277,8 @@ const LandingPage = () => {
                   fontVariant: 'small-caps',
                   color: '#4F6367',
                   lineHeight: 1.7,
-                  textAlign: matchesSM ? 'left' : 'right',
+                  marginLeft: matchesSM ? 0 : 8,
+                  textAlign: 'left',
                 }}
               >
                 Testimonials
@@ -285,25 +288,25 @@ const LandingPage = () => {
                 sx={{
                   lineHeight: matchesSM ? 1.3 : 1.5,
                   marginBottom: '0.6em',
-                  textAlign: matchesSM ? 'left' : 'right',
+                  textAlign: 'left',
+                  marginLeft: matchesSM ? 0 : 8,
                 }}
               >
                 "The Gatherings sessions are the highlight of Carole’s week.
-                <Typography variant={matchesSM ? 'body' : 'subtitle1'}>
-                  {''} She looks forward to them very much, loves the people and
-                  feels
-                  <Typography variant={matchesSM ? 'body' : 'subtitle2'}>
-                    they are all friends."
-                    <Typography
-                      variant={matchesSM ? 'body' : 'subtitle1'}
-                      sx={{ fontWeight: 'lighter' }}
-                    >
-                      {''} ~ Gerald Lewis
-                    </Typography>
-                  </Typography>
+                {''} She looks forward to them very much, loves the people and
+                feels <b>they are all friends."</b>
+                <Typography
+                  variant={matchesSM ? 'body' : 'subtitle1'}
+                  sx={{ fontWeight: 'lighter' }}
+                >
+                  {''} ~ Gerald Lewis
                 </Typography>
               </Typography>
-              <Grid container justifyContent={matchesSM ? 'left' : 'right'}>
+              <Grid
+                container
+                justifyContent="left"
+                sx={{ marginLeft: matchesSM ? 0 : 8 }}
+              >
                 <Button
                   variant="outlined"
                   component={Link}
@@ -408,99 +411,6 @@ const LandingPage = () => {
             </Grid>
           </Grid>
         </Grid>
-        {/*-----History Block----*/}
-        {/* <Grid
-          container
-          direction={matchesSM ? 'column' : 'row'}
-          justifyContent={matchesMD ? 'center' : matchesSM ? 'left' : undefined}
-          alignItems={'center'}
-          padding={matchesSM ? 2.2 : 1.5}
-          sx={{ marginTop: matchesSM ? '3em' : '6em' }}
-        >
-          <Grid
-            item
-            sx={{
-              marginLeft: matchesSM ? 0 : '1.3em',
-              marginRight: matchesSM ? 0 : '4.2em',
-              marginTop: '0.5em',
-            }}
-          >
-            <img
-              src={FoundersNY}
-              alt="Mary Ellen and Susan of Virtual Gatherings"
-              width={matchesSM ? '94%' : 550}
-              height={matchesSM ? '94%' : 411.4}
-            />
-            <Grid
-              container
-              justifyContent={matchesSM ? 'center' : 'flex-end'}
-              marginTop={matchesSM ? 2 : undefined}
-            >
-              <Typography
-                variant={matchesSM ? 'h5' : 'h4'}
-                justifyContent={matchesSM ? 'left' : 'flex-end'}
-                sx={{
-                  fontFamily: 'Cardo',
-                  fontVariant: 'small-caps',
-                  color: '#FE5F55',
-                  lineHeight: matchesSM ? 1.2 : 1.7,
-                  textAlign: matchesSM ? 'left' : 'left',
-                }}
-              >
-                Our History
-              </Typography>
-              <Box marginBottom={'1em'}>
-                <Typography
-                  variant={matchesSM ? 'body' : 'p'}
-                  sx={{
-                    lineHeight: matchesSM ? 1.3 : 1.5,
-                    marginBottom: '0.6em',
-                    textAlign: matchesSM ? 'center' : 'flex-end',
-                    fontSize: '1.2em',
-                  }}
-                >
-                  Originally called Beginnings, this program has served the NYC
-                  memory loss community for over 10 years. In 2019 we partnered
-                  with CaringKind. In response to COVID-19 the program
-                  transitioned online. That was how <b> Virtual Gatherings</b>{' '}
-                  came to life, offering its exceptional service virtually. The
-                  virtual platform allows this unique holistic approach to be
-                  offered globally.
-                </Typography>
-              </Box>
-              <Button
-                variant="outlined"
-                component={Link}
-                to="/about-virtual-gatherings"
-                sx={{
-                  borderColor: '#7A9E9F',
-                  borderWidth: 2,
-                  textTransform: 'none',
-                  fontFamily: 'Cardo',
-                  fontWeight: 'bold',
-                  fontSize: '0.8rem',
-                  height: 35,
-                  width: matchesSM ? 'auto' : 133,
-                  padding: 1,
-                }}
-              >
-                Learn More
-              </Button>
-            </Grid>
-          </Grid> */}
-        {/* <Grid
-            item
-            xs={12}
-            sm={12}
-            md={6}
-            lg={6}
-            xl={6}
-            sx={{ marginRight: matchesMD ? 0 : matchesSM ? 0 : '4.2em' }}
-          >
-            
-          </Grid> */}
-        {/* </Grid>
-      </Grid> */}
         <Grid item>
           {/*------Information Block -----*/}
           <Grid
@@ -508,11 +418,11 @@ const LandingPage = () => {
             alignItems={'center'}
             justifyContent={matchesSM ? 'space-around' : 'space-between'}
             sx={{
-              height: '23em',
+              height: matchesSM ? '20em' : '14em',
               marginTop: matchesSM ? '2em' : '5em',
               marginBottom: matchesSM ? '2em' : '5em',
               backgroundImage: matchesSM
-                ? 'linear-gradient(to top left, #FE5F55, #FAF9F6)'
+                ? 'linear-gradient(to bottom left, #FE5F55, #FAF9F6)'
                 : 'linear-gradient(to bottom, #FE5F55, #FAF9F6)',
               boxShadow: 3,
               borderRadius: matchesSM ? 0 : 3,
@@ -602,7 +512,7 @@ const LandingPage = () => {
                       padding: 1,
                     }}
                   >
-                    Read More
+                    Say Hello
                   </Button>
                 </Grid>
               </Grid>

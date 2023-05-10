@@ -10,11 +10,11 @@ export const Wrapper = styled.div`
   height: 100%;
 
   button {
-    border-radius: 0 0 20px 20px;
+    border-radius: 10px;
   }
 
   img {
-    max-height: 250px;
+    max-height: 290px;
     object-fit: cover;
     border-radius: 20px 20px 0 0;
   }

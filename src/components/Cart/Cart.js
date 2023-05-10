@@ -29,7 +29,7 @@ const Cart = ({ cartItems, addToCart, removeFromCart }) => {
           marginBottom: matchesSM ? '13em' : matchesLG ? '2em' : 0,
           marginTop: matchesSM ? 0 : matchesLG ? '2em' : 0,
         }}
-        sm={6}
+        sm={3}
         lg={9}
       >
         <Grid container>

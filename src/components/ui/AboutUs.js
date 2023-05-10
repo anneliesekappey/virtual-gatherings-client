@@ -562,11 +562,11 @@ const AboutUs = () => {
             alignItems={'center'}
             justifyContent={matchesSM ? 'space-around' : 'space-between'}
             sx={{
-              height: '23em',
+              height: matchesSM ? '20em' : '14em',
               marginTop: '5em',
               marginBottom: '5em',
               backgroundImage: matchesSM
-                ? 'linear-gradient(to right, #FE5F55, #FAF9F6)'
+                ? 'linear-gradient(to bottom left, #FE5F55, #FAF9F6)'
                 : 'linear-gradient(to bottom, #FE5F55, #FAF9F6)',
               boxShadow: 3,
               borderRadius: matchesSM ? 0 : 3,
@@ -656,7 +656,7 @@ const AboutUs = () => {
                       padding: 1,
                     }}
                   >
-                    Read More
+                    Say Hello
                   </Button>
                 </Grid>
               </Grid>
